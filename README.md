@@ -4,17 +4,6 @@ An interactive portfolio experience inspired by macOS, iOS, and iPadOS, featurin
 
 Repository: https://github.com/abinash123hg/abinash--portfolio
 
-## Run Locally
-
-Prerequisites: Node.js
-
-```bash
-npm install
-npm run dev
-```
-
-Open http://localhost:3000 in your browser.
-
 ## Validation
 
 ```bash
