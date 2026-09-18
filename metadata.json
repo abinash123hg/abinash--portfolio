@@ -1,0 +1,6 @@
+{
+  "name": "Abinash Swain — iPhone 15 AI/ML Portfolio",
+  "description": "Production-quality iPhone 15 portfolio clone for Abinash Swain, AI/ML Developer specializing in RAG, LLM applications, MCP, and AI agents.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
