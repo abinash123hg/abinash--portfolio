@@ -276,17 +276,17 @@ html:has(.portfolio-landing--day) {
 }
 
 .portfolio-landing--night {
-  background: radial-gradient(ellipse 70% 66% at 50% 46%, #123e9e 0%, #0b2869 40%, #07163a 70%, #050b1e 100%);
-  color: #eefbff;
+  background: radial-gradient(ellipse 64% 58% at 50% 46%, #1d2734 0%, #151a22 42%, #101318 72%, #0b0d11 100%);
+  color: #f4f4f1;
 }
 
 .portfolio-landing--night::before {
-  opacity: 0.7;
+  opacity: 0.38;
   background:
-    radial-gradient(ellipse 56% 48% at 50% 44%, rgba(46, 119, 255, 0.48), transparent 70%),
-    radial-gradient(ellipse 48% 52% at 50% 66%, rgba(0, 188, 210, 0.28), transparent 72%),
-    radial-gradient(ellipse 42% 38% at 52% 80%, rgba(26, 112, 255, 0.34), transparent 74%),
-    linear-gradient(168deg, transparent 26%, rgba(110, 239, 255, 0.14) 48%, transparent 72%);
+    radial-gradient(ellipse 48% 42% at 50% 44%, rgba(46, 119, 255, 0.24), transparent 70%),
+    radial-gradient(ellipse 42% 46% at 50% 66%, rgba(0, 188, 210, 0.14), transparent 72%),
+    radial-gradient(ellipse 36% 34% at 52% 80%, rgba(26, 112, 255, 0.16), transparent 74%),
+    linear-gradient(168deg, transparent 26%, rgba(110, 239, 255, 0.06) 48%, transparent 72%);
 }
 
 .portfolio-landing--day::before {
