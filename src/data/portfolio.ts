@@ -121,7 +121,7 @@ export const PORTFOLIO_DATA = {
       challenges: 'Overcoming semantic drift in tables, header structures, and mathematical formula chunks inside complex enterprise PDF manuals.',
       results: 'Reached 94.2% context precision and cut hallucination rates by 42% over standard naïve chunking.',
       evaluation: 'Evaluated using LlamaIndex Ragas test suites for faithfulness, answer relevancy, and context recall.',
-      githubUrl: 'https://github.com/abinash123hg/Document-RAG-Agent.git',
+      githubUrl: 'https://github.com/abinash123hg/Document-RAG-Agent',
       liveDemoUrl: 'https://ais-dev-clxhguavorwiqmygvyflld-888038745886.asia-east1.run.app',
       featured: true
     },
