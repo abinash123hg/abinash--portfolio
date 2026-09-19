@@ -108,8 +108,25 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onExplore, onResum
     transitionTimerRef.current = window.setTimeout(() => onExplore(destination), 420);
   };
 
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const landing = event.currentTarget;
+    landing.style.setProperty('--pointer-x', `${(event.clientX / window.innerWidth) * 100}%`);
+    landing.style.setProperty('--pointer-y', `${(event.clientY / window.innerHeight) * 100}%`);
+  };
+
+  const resetPointerGlow = (event: React.PointerEvent<HTMLDivElement>) => {
+    event.currentTarget.style.setProperty('--pointer-x', '50%');
+    event.currentTarget.style.setProperty('--pointer-y', '44%');
+  };
+
   return (
-    <div ref={landingRef} className={`portfolio-landing portfolio-landing--${landingTheme}`}>
+    <div
+      ref={landingRef}
+      className={`portfolio-landing portfolio-landing--${landingTheme}`}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={resetPointerGlow}
+    >
       <a className="skip-link" href="#main-content">Skip to content</a>
       {shouldLoadVideo && (
         <video className="portfolio-video" autoPlay muted loop playsInline preload="none" aria-hidden="true">

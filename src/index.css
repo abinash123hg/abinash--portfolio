@@ -213,12 +213,14 @@ html:has(.portfolio-landing--day) {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   isolation: isolate;
+  --pointer-x: 50%;
+  --pointer-y: 44%;
   transition: background 700ms ease, color 450ms ease;
 }
 
 .portfolio-landing::before,
 .portfolio-landing::after {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   content: '';
@@ -243,6 +245,7 @@ html:has(.portfolio-landing--day) {
   z-index: 1;
   opacity: 0.12;
   background-image:
+    radial-gradient(ellipse 22% 18% at var(--pointer-x) var(--pointer-y), rgba(110, 239, 255, 0.22), transparent 72%),
     repeating-radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22) 0 0.6px, transparent 0.8px 4px),
     repeating-linear-gradient(122deg, transparent 0 18px, rgba(0, 87, 190, 0.08) 19px 20px, transparent 21px 42px);
   mix-blend-mode: soft-light;
