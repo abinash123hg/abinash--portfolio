@@ -109,7 +109,7 @@ Based in Bhubaneswar, Odisha, India, I am actively seeking AI/ML engineering int
         { label: 'End-to-End Latency', value: '< 580ms' }
       ],
       technologies: ['Python', 'FastAPI', 'LlamaIndex', 'Qdrant / ChromaDB', 'Sentence Transformers', 'BM25', 'FlashRank', 'React'],
-      githubUrl: 'https://github.com/abinash123hg/docurag-engine',
+      githubUrl: 'https://github.com/abinash123hg/Document-RAG-Agent.git',
       liveDemoUrl: 'https://ais-dev-clxhguavorwiqmygvyflld-888038745886.asia-east1.run.app',
       featured: true,
       color: '#10b981',

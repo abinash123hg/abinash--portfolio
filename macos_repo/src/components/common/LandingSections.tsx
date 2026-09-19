@@ -93,7 +93,7 @@ const projects = [
     name: 'RAG Knowledge Assistant',
     description: 'A retrieval-based AI application that processes documents, creates embeddings, searches relevant content, and uses an LLM to generate grounded answers.',
     technologies: ['Python', 'LLM', 'RAG', 'Embeddings', 'Vector Database'],
-    githubUrl: 'https://github.com/abinash123hg/docurag-engine',
+    githubUrl: 'https://github.com/abinash123hg/Document-RAG-Agent.git',
     projectUrl: '',
   },
   {
