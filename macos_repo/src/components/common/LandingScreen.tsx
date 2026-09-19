@@ -66,6 +66,15 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onExplore, onResum
   }, []);
 
   useEffect(() => {
+    const syncVisibility = () => {
+      landingRef.current?.classList.toggle('portfolio-landing--paused', document.hidden);
+    };
+    document.addEventListener('visibilitychange', syncVisibility, { passive: true });
+    syncVisibility();
+    return () => document.removeEventListener('visibilitychange', syncVisibility);
+  }, []);
+
+  useEffect(() => {
     const connection = (navigator as Navigator & {
       connection?: { saveData?: boolean; effectiveType?: string };
     }).connection;
