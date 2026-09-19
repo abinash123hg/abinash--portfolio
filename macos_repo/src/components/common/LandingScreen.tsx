@@ -46,6 +46,24 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onExplore, onResum
   const landingTheme = resolvedTheme === 'light' ? 'day' : 'night';
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const transitionTimerRef = useRef<number | null>(null);
+  const pointerFrameRef = useRef<number | null>(null);
+  const pointerTargetRef = useRef({ x: 50, y: 44 });
+  const pointerPositionRef = useRef({ x: 50, y: 44 });
+  const pointerTrackingDisabledRef = useRef(false);
+
+  useEffect(() => {
+    const pointerCapability = window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse), (max-width: 767px)');
+    const syncPointerCapability = () => {
+      pointerTrackingDisabledRef.current = pointerCapability.matches;
+    };
+    syncPointerCapability();
+    pointerCapability.addEventListener('change', syncPointerCapability);
+
+    return () => {
+      pointerCapability.removeEventListener('change', syncPointerCapability);
+      if (pointerFrameRef.current !== null) window.cancelAnimationFrame(pointerFrameRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const connection = (navigator as Navigator & {
@@ -108,16 +126,43 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onExplore, onResum
     transitionTimerRef.current = window.setTimeout(() => onExplore(destination), 420);
   };
 
+  const animatePointerGlow = () => {
+    pointerFrameRef.current = null;
+    const landing = landingRef.current;
+    if (!landing) return;
+
+    const position = pointerPositionRef.current;
+    const target = pointerTargetRef.current;
+    position.x += (target.x - position.x) * 0.12;
+    position.y += (target.y - position.y) * 0.12;
+    landing.style.setProperty('--pointer-x', `${position.x}%`);
+    landing.style.setProperty('--pointer-y', `${position.y}%`);
+
+    if (Math.abs(target.x - position.x) > 0.05 || Math.abs(target.y - position.y) > 0.05) {
+      pointerFrameRef.current = window.requestAnimationFrame(animatePointerGlow);
+    }
+  };
+
+  const queuePointerGlow = () => {
+    if (pointerFrameRef.current === null) {
+      pointerFrameRef.current = window.requestAnimationFrame(animatePointerGlow);
+    }
+  };
+
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const landing = event.currentTarget;
-    landing.style.setProperty('--pointer-x', `${(event.clientX / window.innerWidth) * 100}%`);
-    landing.style.setProperty('--pointer-y', `${(event.clientY / window.innerHeight) * 100}%`);
+    if (event.pointerType === 'touch' || pointerTrackingDisabledRef.current) return;
+
+    const influenceX = 50 + (((event.clientX / window.innerWidth) * 100) - 50) * 0.55;
+    const influenceY = 44 + (((event.clientY / window.innerHeight) * 100) - 44) * 0.45;
+    pointerTargetRef.current.x = Math.max(28, Math.min(72, influenceX));
+    pointerTargetRef.current.y = Math.max(26, Math.min(68, influenceY));
+    queuePointerGlow();
   };
 
   const resetPointerGlow = (event: React.PointerEvent<HTMLDivElement>) => {
-    event.currentTarget.style.setProperty('--pointer-x', '50%');
-    event.currentTarget.style.setProperty('--pointer-y', '44%');
+    pointerTargetRef.current.x = 50;
+    pointerTargetRef.current.y = 44;
+    queuePointerGlow();
   };
 
   return (
