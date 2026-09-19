@@ -1834,6 +1834,95 @@ html:has(.portfolio-landing--day) {
   background: rgba(255,255,255,0.42);
 }
 
+/* Subtle glass polish: paint, depth, and state feedback only. */
+.portfolio-landing .portfolio-header,
+.portfolio-landing .portfolio-mode-toggle,
+.portfolio-landing .portfolio-enter,
+.portfolio-landing .portfolio-menu-button,
+.portfolio-landing .portfolio-button,
+.portfolio-landing .portfolio-socials a,
+.portfolio-landing .portfolio-profile-facts div,
+.portfolio-landing .portfolio-focus-card,
+.portfolio-landing .portfolio-expertise-card,
+.portfolio-landing .portfolio-system-card,
+.portfolio-landing .portfolio-workflow-step,
+.portfolio-landing .portfolio-project-card,
+.portfolio-landing .portfolio-experience-card,
+.portfolio-landing .portfolio-certification-card,
+.portfolio-landing .portfolio-contact-box {
+  -webkit-backdrop-filter: blur(10px) saturate(118%);
+  backdrop-filter: blur(10px) saturate(118%);
+}
+
+.portfolio-landing .portfolio-enter,
+.portfolio-landing .portfolio-menu-button,
+.portfolio-landing .portfolio-button,
+.portfolio-landing .portfolio-socials a,
+.portfolio-landing .portfolio-mode-button,
+.portfolio-landing .portfolio-mobile-links a,
+.portfolio-landing .portfolio-mobile-links button {
+  transition: transform 180ms ease-out, background-color 180ms ease-out, background-image 180ms ease-out, border-color 180ms ease-out, box-shadow 180ms ease-out, color 180ms ease-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portfolio-landing .portfolio-enter:hover,
+.portfolio-landing .portfolio-menu-button:hover,
+.portfolio-landing .portfolio-button:hover,
+.portfolio-landing .portfolio-socials a:hover,
+.portfolio-landing .portfolio-mode-button:hover,
+.portfolio-landing .portfolio-mobile-links a:hover,
+.portfolio-landing .portfolio-mobile-links button:hover {
+  transform: translateY(-1px) scale(1.01);
+}
+
+.portfolio-landing .portfolio-enter:active,
+.portfolio-landing .portfolio-menu-button:active,
+.portfolio-landing .portfolio-button:active,
+.portfolio-landing .portfolio-socials a:active,
+.portfolio-landing .portfolio-mode-button:active,
+.portfolio-landing .portfolio-mobile-links a:active,
+.portfolio-landing .portfolio-mobile-links button:active {
+  transform: scale(0.99);
+}
+
+.portfolio-landing :is(a, button, input, textarea, select, [role="button"]):focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus-ring) 22%, transparent), 0 0 18px color-mix(in srgb, var(--color-focus-ring) 18%, transparent);
+}
+
+.portfolio-landing :is(button, input, textarea, select, [role="button"]):disabled,
+.portfolio-landing :is(button, input, textarea, select, [role="button"])[aria-disabled="true"] {
+  opacity: 0.58;
+  filter: saturate(0.72);
+  pointer-events: none;
+}
+
+.portfolio-landing > :is(.portfolio-about, .portfolio-systems, .portfolio-workflow, .portfolio-work, .portfolio-experience, .portfolio-certifications, .portfolio-contact, .portfolio-footer) {
+  border-top-color: color-mix(in srgb, var(--color-border-subtle) 72%, var(--color-status-info) 28%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
+.portfolio-landing--day .portfolio-header,
+.portfolio-landing--day .portfolio-mode-toggle,
+.portfolio-landing--day .portfolio-enter,
+.portfolio-landing--day .portfolio-menu-button,
+.portfolio-landing--day .portfolio-button,
+.portfolio-landing--day .portfolio-socials a,
+.portfolio-landing--day .portfolio-profile-facts div,
+.portfolio-landing--day .portfolio-focus-card,
+.portfolio-landing--day .portfolio-expertise-card,
+.portfolio-landing--day .portfolio-system-card,
+.portfolio-landing--day .portfolio-workflow-step,
+.portfolio-landing--day .portfolio-project-card,
+.portfolio-landing--day .portfolio-experience-card,
+.portfolio-landing--day .portfolio-certification-card,
+.portfolio-landing--day .portfolio-contact-box {
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+  backdrop-filter: blur(10px) saturate(112%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.58), 0 12px 30px rgba(36,76,88,0.1);
+}
+
 @keyframes drift {
   from { transform: translateY(-9px); filter: blur(0px); }
   to { transform: translateY(9px); filter: blur(12px); }
