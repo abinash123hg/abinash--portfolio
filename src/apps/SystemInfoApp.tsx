@@ -22,7 +22,7 @@ export const SystemInfoApp: React.FC = () => {
   ];
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col overflow-y-auto no-scrollbar pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col overflow-y-auto no-scrollbar pb-16">
       <AppHeader title="About" subtitle="Device & Candidate Specs" />
 
       <div className="p-4 space-y-4">

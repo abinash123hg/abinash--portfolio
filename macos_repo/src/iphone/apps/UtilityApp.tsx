@@ -18,7 +18,7 @@ export const UtilityApp: React.FC = () => {
   const totalRagLatency = Math.max(denseLatency, sparseLatency) + rerankLatency + ttftLatency;
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col overflow-y-auto no-scrollbar pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col overflow-y-auto no-scrollbar pb-16">
       <AppHeader title="Utilities" subtitle="AI Engineering Calculators" />
 
       {/* Segmented Control */}

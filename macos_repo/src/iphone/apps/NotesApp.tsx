@@ -105,7 +105,7 @@ export const NotesApp: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16">
       <AppHeader
         title={selectedNote ? 'Note' : 'Notes'}
         subtitle={selectedNote ? selectedNote.category : `${NOTES.length} Technical Notes`}

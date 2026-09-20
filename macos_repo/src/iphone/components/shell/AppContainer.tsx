@@ -36,7 +36,8 @@ import { PullToRefresh } from '../ui/PullToRefresh';
 import { APPS_REGISTRY } from '../../data/appsRegistry';
 
 export const AppContainer: React.FC = () => {
-  const { activeApp } = useOSStore();
+  const { activeApp, theme } = useOSStore();
+  const isDark = theme === 'dark';
 
   const activeAppMeta = APPS_REGISTRY.find((a) => a.id === activeApp);
   const appTitle = activeAppMeta?.name || (activeApp ? activeApp.charAt(0).toUpperCase() + activeApp.slice(1) : 'App');
@@ -120,7 +121,7 @@ export const AppContainer: React.FC = () => {
             damping: 30,
             mass: 0.8
           }}
-          className="absolute inset-0 z-20 flex flex-col bg-inherit overflow-hidden"
+          className={`absolute inset-0 z-20 flex flex-col overflow-hidden pb-[var(--home-indicator-h)] ${isDark ? 'bg-black' : 'bg-zinc-100'}`}
         >
           <PullToRefresh appName={appTitle} disabled={activeApp === 'camera'}>
             {renderActiveApp()}

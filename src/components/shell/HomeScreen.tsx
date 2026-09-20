@@ -106,7 +106,7 @@ export const HomeScreen: React.FC = () => {
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="relative flex-1 w-full h-full flex flex-col justify-between pt-1 pb-20 px-3 select-none overflow-hidden"
+      className="relative flex-1 min-h-0 w-full flex flex-col justify-between pt-1 pb-20 px-3 select-none overflow-hidden"
     >
       {/* Edit Mode Top Toolbar (iOS 18 Authenticity) */}
       <AnimatePresence>

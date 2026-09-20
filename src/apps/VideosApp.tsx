@@ -76,7 +76,7 @@ export const VideosApp: React.FC = () => {
   const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-y-auto no-scrollbar pb-16 select-none">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-y-auto no-scrollbar pb-16 select-none">
       <AppHeader title="Videos" subtitle="Technical Architecture & Demos" />
 
       <div className="p-3 space-y-4">

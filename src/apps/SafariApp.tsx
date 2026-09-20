@@ -103,7 +103,7 @@ export const SafariApp: React.FC = () => {
   const isDemo = currentUrl.toLowerCase().includes('run.app');
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16 select-none bg-zinc-950 text-white">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16 select-none bg-zinc-950 text-white">
       <AppHeader title="Safari" subtitle="iOS Web Browser" />
 
       {/* Safari Top Address & Navigation Bar */}

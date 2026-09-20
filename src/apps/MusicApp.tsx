@@ -46,7 +46,7 @@ export const MusicApp: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-y-auto no-scrollbar pb-16 select-none">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-y-auto no-scrollbar pb-16 select-none">
       <AppHeader title="Music" subtitle="Soundtracks & Focus Grooves" />
 
       <div className="p-4 flex-1 flex flex-col items-center justify-between space-y-4">

@@ -64,7 +64,7 @@ export const MailApp: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16">
       <AppHeader
         title={isComposing ? 'New Message' : selectedEmail ? 'Message' : 'Inbox'}
         subtitle={isComposing ? 'Direct Email' : selectedEmail ? selectedEmail.sender : 'Candidate Inquiries'}

@@ -31,7 +31,8 @@ import { TrashApp } from '../../apps/TrashApp';
 import { VideosApp } from '../../apps/VideosApp';
 
 export const AppContainer: React.FC = () => {
-  const { activeApp } = useOSStore();
+  const { activeApp, theme } = useOSStore();
+  const isDark = theme === 'dark';
 
   const renderActiveApp = () => {
     switch (activeApp) {
@@ -107,7 +108,7 @@ export const AppContainer: React.FC = () => {
             damping: 32,
             mass: 0.8
           }}
-          className="absolute inset-0 z-20 flex flex-col bg-inherit overflow-hidden"
+          className={`absolute inset-0 z-20 flex flex-col overflow-hidden pb-[var(--home-indicator-h)] ${isDark ? 'bg-black' : 'bg-zinc-100'}`}
         >
           {renderActiveApp()}
         </motion.div>

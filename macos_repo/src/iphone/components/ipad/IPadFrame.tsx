@@ -118,7 +118,7 @@ export const IPadFrame: React.FC<IPadFrameProps> = ({ children }) => {
 
         {/* Liquid Retina Display Container */}
         <div
-          className={`relative flex-1 w-full h-full rounded-[30px] sm:rounded-[36px] overflow-hidden flex flex-col transition-colors duration-300 ${
+          className={`relative flex-1 min-h-0 w-full rounded-[30px] sm:rounded-[36px] overflow-hidden flex flex-col transition-colors duration-300 ${
             isDark ? 'bg-black text-white' : 'bg-zinc-100 text-zinc-900'
           }`}
           style={{
@@ -139,7 +139,7 @@ export const IPadFrame: React.FC<IPadFrameProps> = ({ children }) => {
           />
 
           {/* Main iPad View Area */}
-          <div className="relative z-10 flex-1 w-full h-full overflow-hidden flex flex-col">
+          <div className="relative z-10 flex-1 min-h-0 w-full overflow-hidden flex flex-col">
             {activeApp ? (
               <IPadStageManager
                 isStageManager={isStageManager}

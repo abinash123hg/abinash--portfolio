@@ -65,7 +65,7 @@ export const MusicApp: React.FC = () => {
   };
 
   return (
-    <div className={`flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16 select-none ${
+    <div className={`flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16 select-none ${
       isDark ? 'bg-zinc-950 text-white' : 'bg-zinc-50 text-zinc-900'
     }`}>
       <AppHeader

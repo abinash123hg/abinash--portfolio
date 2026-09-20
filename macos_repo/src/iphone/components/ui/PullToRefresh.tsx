@@ -219,7 +219,7 @@ export const PullToRefresh: React.FC<PullToRefreshProps> = ({
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
-      className={`relative w-full h-full flex flex-col overflow-hidden select-none ${className}`}
+      className={`relative w-full flex-1 min-h-0 flex flex-col overflow-hidden select-none ${className}`}
     >
       {/* iOS Activity Indicator Header Drawer */}
       <div
@@ -282,7 +282,7 @@ export const PullToRefresh: React.FC<PullToRefreshProps> = ({
 
       {/* Main App Content that slides down when pulled */}
       <div
-        className="flex-1 w-full h-full flex flex-col overflow-hidden"
+        className="flex-1 min-h-0 w-full flex flex-col overflow-hidden"
         style={{
           transform: `translate3d(0, ${Math.max(0, pullY)}px, 0)`,
           transition: isPullingRef.current ? 'none' : 'transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1)'

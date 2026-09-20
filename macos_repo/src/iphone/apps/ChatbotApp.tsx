@@ -192,7 +192,7 @@ Official verification links and document scans are viewable in the Certification
   };
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden">
       <AppHeader
         title="AI Twin Assistant"
         subtitle="Grounded in Verified Portfolio Data"

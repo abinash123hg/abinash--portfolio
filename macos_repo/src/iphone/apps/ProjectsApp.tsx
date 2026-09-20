@@ -50,7 +50,7 @@ export const ProjectsApp: React.FC = () => {
   });
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col overflow-y-auto no-scrollbar pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col overflow-y-auto no-scrollbar pb-16">
       <AppHeader
         title="Projects"
         subtitle="AI/ML & RAG Systems"

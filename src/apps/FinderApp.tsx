@@ -77,7 +77,7 @@ export const FinderApp: React.FC = () => {
   const isDark = theme === 'dark';
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16">
       <AppHeader title="Files" subtitle="iCloud Drive & Local Storage" />
 
       {/* Folder Tab Selector */}

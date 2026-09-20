@@ -76,7 +76,7 @@ export const CameraApp: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 w-full h-full bg-black text-white flex flex-col justify-between overflow-hidden pb-16 select-none">
+    <div className="flex-1 min-h-0 w-full bg-black text-white flex flex-col justify-between overflow-hidden pb-16 select-none">
       <AppHeader title="Camera" subtitle="48MP Photonic Engine" transparent />
 
       {/* Top Camera Controls */}

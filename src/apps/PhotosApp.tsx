@@ -32,7 +32,7 @@ export const PhotosApp: React.FC = () => {
   });
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16 select-none">
+    <div className="flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16 select-none">
       <AppHeader title="Photos" subtitle="Campus, AI Labs & Life" />
 
       {/* Category Filter Pills */}

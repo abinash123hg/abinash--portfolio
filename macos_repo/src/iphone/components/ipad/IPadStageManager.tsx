@@ -32,7 +32,7 @@ export const IPadStageManager: React.FC<IPadStageManagerProps> = ({
   if (!isStageManager) {
     // Standard iPad full-screen app container with multitasking header
     return (
-      <div className="relative w-full h-full flex flex-col overflow-hidden bg-inherit">
+      <div className="relative w-full h-full flex flex-col overflow-hidden bg-black">
         {/* Multitasking 3-dots Pill */}
         <div className="absolute top-1 left-1/2 -translate-x-1/2 z-40 flex items-center justify-center">
           <button
@@ -50,7 +50,7 @@ export const IPadStageManager: React.FC<IPadStageManagerProps> = ({
         </div>
 
         {/* App Content */}
-        <div className="flex-1 w-full h-full overflow-hidden flex flex-col">
+        <div className="flex-1 min-h-0 w-full overflow-hidden flex flex-col">
           {children}
         </div>
       </div>
@@ -160,7 +160,7 @@ export const IPadStageManager: React.FC<IPadStageManagerProps> = ({
         </div>
 
         {/* Window Content */}
-        <div className="flex-1 w-full h-full overflow-hidden flex flex-col bg-zinc-950">
+        <div className="flex-1 min-h-0 w-full overflow-hidden flex flex-col bg-zinc-950">
           {children}
         </div>
       </motion.div>

@@ -217,7 +217,7 @@ export const SafariApp: React.FC = () => {
   const isLinkedIn = currentUrl.toLowerCase().includes('linkedin.com');
 
   return (
-    <div className={`flex-1 w-full h-full flex flex-col justify-between overflow-hidden pb-16 select-none ${
+    <div className={`flex-1 min-h-0 w-full flex flex-col justify-between overflow-hidden pb-16 select-none ${
       isDark ? 'bg-zinc-950 text-white' : 'bg-zinc-100 text-zinc-900'
     }`}>
       {/* Safari Glass Header & Search / Address Bar */}
@@ -270,7 +270,7 @@ export const SafariApp: React.FC = () => {
       </div>
 
       {/* Main Browser Viewport */}
-      <div className="flex-1 w-full h-full overflow-hidden relative flex flex-col">
+      <div className="flex-1 min-h-0 w-full overflow-hidden relative flex flex-col">
         {isHomePage ? (
           /* Safari Start Page (Favorites, Recents, Privacy Report) */
           <div className="flex-1 overflow-y-auto no-scrollbar p-4 space-y-6">
@@ -368,7 +368,7 @@ export const SafariApp: React.FC = () => {
           </div>
         ) : (
           /* Live Browser Web View (iframe + Smart Reader Fallback) */
-          <div className="flex-1 w-full h-full flex flex-col relative bg-white">
+          <div className="flex-1 min-h-0 w-full flex flex-col relative bg-white">
             {/* Embedded Web View Status Pill */}
             <div className="bg-zinc-900 px-3 py-1.5 text-white text-[11px] flex items-center justify-between border-b border-white/10 shrink-0">
               <div className="flex items-center gap-1.5 truncate max-w-[220px]">
@@ -456,7 +456,7 @@ export const SafariApp: React.FC = () => {
                 )}
               </div>
             ) : (
-              <div className="flex-1 w-full h-full relative bg-white">
+              <div className="flex-1 min-h-0 w-full relative bg-white">
                 <iframe
                   ref={iframeRef}
                   key={`${currentUrl}-${reloadKey}`}

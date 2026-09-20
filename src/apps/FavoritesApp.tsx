@@ -11,7 +11,7 @@ export const FavoritesApp: React.FC = () => {
   const isDark = theme === 'dark';
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col overflow-y-auto no-scrollbar pb-16 select-none">
+    <div className="flex-1 min-h-0 w-full flex flex-col overflow-y-auto no-scrollbar pb-16 select-none">
       <AppHeader title="Favorites" subtitle="Shows, Cinema & Inspirations" />
 
       <div className="p-3.5 space-y-3.5">
