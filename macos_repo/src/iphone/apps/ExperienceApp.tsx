@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, MapPin, Calendar, CheckCircle2, Briefcase } from 'lucide-react';
+import { Building2, MapPin, Calendar, CheckCircle2 } from 'lucide-react';
 import { AppHeader } from '../components/ui/AppHeader';
 import { PORTFOLIO_DATA } from '../data/portfolio';
 import { useOSStore } from '../store/useOSStore';
@@ -7,6 +7,9 @@ import { useOSStore } from '../store/useOSStore';
 export const ExperienceApp: React.FC = () => {
   const { theme } = useOSStore();
   const isDark = theme === 'dark';
+
+  const muted = isDark ? 'text-zinc-400' : 'text-zinc-500';
+  const primary = isDark ? 'text-white' : 'text-zinc-900';
 
   return (
     <div className="flex-1 min-h-0 w-full flex flex-col overflow-y-auto no-scrollbar pb-16">
@@ -20,56 +23,66 @@ export const ExperienceApp: React.FC = () => {
               isDark ? 'bg-zinc-900/80 border-white/10 text-white' : 'bg-white border-zinc-200 text-zinc-900'
             }`}
           >
-            {/* Header */}
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-500 via-emerald-600 to-green-700 flex items-center justify-center text-white shadow-md">
                   <Building2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className={`text-sm font-bold tracking-tight ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+                  <h3 className={`text-sm font-bold tracking-tight ${primary}`}>
                     {item.company}
                   </h3>
-                  <p className="text-xs font-semibold text-emerald-400 mt-0.5">{item.role}</p>
+                  <p className="text-xs font-semibold text-emerald-500 mt-0.5">{item.role}</p>
                 </div>
               </div>
-              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white/10 text-zinc-300">
+              <span
+                className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
+                  isDark ? 'bg-white/10 text-zinc-300' : 'bg-zinc-100 text-zinc-600'
+                }`}
+              >
                 {idx === 0 ? 'Present' : 'Completed'}
               </span>
             </div>
 
-            {/* Metadata tags */}
-            <div className="mt-3 flex items-center gap-3 text-xs text-zinc-400">
+            <div className={`mt-3 flex items-center gap-3 text-xs ${muted}`}>
               <div className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-zinc-500" />
+                <Calendar className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-500' : 'text-zinc-400'}`} />
                 <span>{item.period}</span>
               </div>
               <div className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+                <MapPin className={`w-3.5 h-3.5 ${isDark ? 'text-zinc-500' : 'text-zinc-400'}`} />
                 <span>{item.location}</span>
               </div>
             </div>
 
-            {/* Responsibilities list */}
-            <div className={`mt-3.5 pt-3 border-t ${isDark ? 'border-white/10 text-zinc-300' : 'border-zinc-200 text-zinc-700'} space-y-2 text-xs`}>
-              <h4 className="text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+            <div
+              className={`mt-3.5 pt-3 border-t space-y-2 text-xs ${
+                isDark ? 'border-white/10 text-zinc-300' : 'border-zinc-200 text-zinc-700'
+              }`}
+            >
+              <h4 className={`text-[10px] font-bold uppercase tracking-wider ${muted}`}>
                 Key Contributions & Responsibilities
               </h4>
               {item.responsibilities.map((resp, i) => (
                 <div key={i} className="flex items-start gap-2 leading-relaxed">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                   <span>{resp}</span>
                 </div>
               ))}
             </div>
 
-            {/* Skills chips */}
-            <div className={`mt-3.5 pt-3 border-t ${isDark ? 'border-white/10' : 'border-zinc-200'} flex flex-wrap gap-1`}>
+            <div
+              className={`mt-3.5 pt-3 border-t flex flex-wrap gap-1 ${
+                isDark ? 'border-white/10' : 'border-zinc-200'
+              }`}
+            >
               {item.skills.map((skill) => (
                 <span
                   key={skill}
                   className={`px-2 py-0.5 rounded-lg border text-[10px] font-medium ${
-                    isDark ? 'bg-white/5 border-white/10 text-zinc-300' : 'bg-zinc-100 border-zinc-200 text-zinc-700'
+                    isDark
+                      ? 'bg-white/5 border-white/10 text-zinc-300'
+                      : 'bg-zinc-100 border-zinc-200 text-zinc-700'
                   }`}
                 >
                   {skill}
