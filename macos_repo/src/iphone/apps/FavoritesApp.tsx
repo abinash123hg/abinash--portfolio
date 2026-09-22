@@ -15,7 +15,7 @@ export const FavoritesApp: React.FC = () => {
       <AppHeader title="Favorites" subtitle="Shows, Cinema & Inspirations" />
 
       <div className="p-3.5 space-y-3.5">
-        <p className="text-xs text-zinc-400 px-1 leading-relaxed">
+        <p className={isDark ? 'text-xs text-zinc-400 px-1 leading-relaxed' : 'text-xs text-zinc-500 px-1 leading-relaxed'}>
           Top-tier series exploring complex systems, game theory, psychological depth, and calculated strategies.
         </p>
 
@@ -31,7 +31,6 @@ export const FavoritesApp: React.FC = () => {
                   : 'bg-white border-zinc-200 text-zinc-900'
               }`}
             >
-              {/* Poster Header */}
               {show.posterSrc && (
                 <div className="w-full h-36 bg-zinc-950 relative overflow-hidden">
                   <img
@@ -61,11 +60,10 @@ export const FavoritesApp: React.FC = () => {
                 </div>
               )}
 
-              {/* Card Body */}
               <div className="p-3.5 space-y-2">
                 <div className="flex items-center justify-between text-xs text-blue-400 font-semibold">
                   <span>{show.genre}</span>
-                  {isExpanded ? <ChevronUp className="w-4 h-4 text-zinc-400" /> : <ChevronDown className="w-4 h-4 text-zinc-400" />}
+                  {isExpanded ? <ChevronUp className={isDark ? 'w-4 h-4 text-zinc-400' : 'w-4 h-4 text-zinc-500'} /> : <ChevronDown className={isDark ? 'w-4 h-4 text-zinc-400' : 'w-4 h-4 text-zinc-500'} />}
                 </div>
 
                 <div className={`text-xs italic flex items-start gap-1.5 leading-relaxed p-2 rounded-xl border ${

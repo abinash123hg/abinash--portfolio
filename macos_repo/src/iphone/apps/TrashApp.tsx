@@ -75,7 +75,7 @@ export const TrashApp: React.FC = () => {
           <div className="p-5 rounded-3xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-center space-y-2 my-auto">
             <CheckCircle2 className="w-8 h-8 mx-auto text-emerald-400" />
             <h3 className="font-bold text-sm">Trash Emptied!</h3>
-            <p className="text-xs text-zinc-400">All legacy bugs and obsolete code purged.</p>
+            <p className={isDark ? 'text-xs text-zinc-400' : 'text-xs text-zinc-500'}>All legacy bugs and obsolete code purged.</p>
             <button
               onClick={handleRestore}
               className="mt-2 text-xs text-blue-400 underline cursor-pointer"
@@ -106,7 +106,7 @@ export const TrashApp: React.FC = () => {
                 <span className="text-xs font-bold text-rose-400">{item.name}</span>
                 <span className="text-[10px] text-zinc-500 font-mono">{item.date}</span>
               </div>
-              <p className="text-[11px] text-zinc-400 mt-1 leading-relaxed">{item.reason}</p>
+              <p className={isDark ? 'text-[11px] text-zinc-400 mt-1 leading-relaxed' : 'text-[11px] text-zinc-500 mt-1 leading-relaxed'}>{item.reason}</p>
             </div>
           ))
         )}
