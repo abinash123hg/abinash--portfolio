@@ -89,7 +89,10 @@ export const HomeScreen: React.FC = () => {
     }
   };
 
-  const labelClass = 'text-[11px] font-medium tracking-tight truncate max-w-[66px] text-center text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]';
+  const nameStyle: React.CSSProperties = {
+    color: '#ffffff',
+    textShadow: '0 1px 3px rgba(0,0,0,0.85)'
+  };
 
   return (
     <div
@@ -102,7 +105,8 @@ export const HomeScreen: React.FC = () => {
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="relative flex-1 min-h-0 w-full flex flex-col justify-between pt-[calc(2.75rem+env(safe-area-inset-top,0px))] pb-20 px-3 select-none overflow-hidden"
+      className="iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between pb-20 px-3 select-none overflow-hidden"
+      style={{ paddingTop: '72px' }}
     >
       <AnimatePresence>
         {isHomeEditing && (
@@ -171,7 +175,9 @@ export const HomeScreen: React.FC = () => {
                   </span>
                 )}
               </div>
-              <span className={labelClass}>{app.name}</span>
+              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+                {app.name}
+              </span>
             </motion.div>
           ))}
 
@@ -193,7 +199,9 @@ export const HomeScreen: React.FC = () => {
                 <div className="w-4 h-4 rounded-xs bg-purple-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-amber-500/80" />
               </div>
-              <span className={labelClass}>Dev Tools</span>
+              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+                Dev Tools
+              </span>
             </motion.div>
           )}
 
@@ -215,7 +223,9 @@ export const HomeScreen: React.FC = () => {
                 <div className="w-4 h-4 rounded-xs bg-teal-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-pink-500/80" />
               </div>
-              <span className={labelClass}>Media</span>
+              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+                Media
+              </span>
             </motion.div>
           )}
         </div>
