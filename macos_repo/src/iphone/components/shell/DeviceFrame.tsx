@@ -52,11 +52,13 @@ export const DeviceFrame: React.FC<DeviceFrameProps> = ({ children }) => {
             }`}
           />
 
-          <StatusBar />
-
+          {/* Home / app content — below status bar */}
           <div className="relative z-10 flex-1 min-h-0 w-full overflow-hidden flex flex-col">
             {activeApp ? children : <HomeScreen />}
           </div>
+
+          {/* Status bar ABOVE content so time + battery are never overlapped */}
+          <StatusBar />
 
           {isLocked && <LockScreen />}
           <NotificationCenter />
