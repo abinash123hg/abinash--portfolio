@@ -31,22 +31,36 @@ export const StatusBar: React.FC = () => {
   const level = batteryLevel ?? 83;
 
   return (
-    <div className="iphone-status-bar relative z-40 w-full pt-2 px-6 flex items-center justify-between select-none text-white bg-transparent">
-      <div
-        onClick={() => toggleNotificationCenter()}
-        className="w-20 flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+    <div className="iphone-status-bar relative z-[100] w-full pt-2 px-6 flex items-center justify-between select-none text-white bg-transparent">
+      {/* Notification Center hit target — must be a <button> so CSS pointer-events:auto applies */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleNotificationCenter();
+        }}
+        className="w-20 min-h-[32px] flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0 text-inherit"
         title="Tap to open Notification Center"
+        aria-label="Open Notification Center"
+        data-status-hit="notification"
       >
         <span className="text-[15px] font-semibold tracking-tight tabular-nums">{time}</span>
         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" title="Location active" />
-      </div>
+      </button>
 
       <DynamicIsland />
 
-      <div
-        onClick={toggleControlCenter}
-        className="w-20 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+      {/* Control Center hit target — must be a <button> so CSS pointer-events:auto applies */}
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleControlCenter();
+        }}
+        className="w-20 min-h-[32px] flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0 text-inherit"
         title="Tap to open Control Center"
+        aria-label="Open Control Center"
+        data-status-hit="control"
       >
         {!airplaneMode ? (
           <div className="flex items-end gap-[1.5px] h-3" aria-label="Cellular signal">
@@ -75,7 +89,7 @@ export const StatusBar: React.FC = () => {
             <div className="w-[2px] h-1 bg-current rounded-r-sm ml-[1px]" />
           </div>
         </div>
-      </div>
+      </button>
     </div>
   );
 };
