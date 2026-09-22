@@ -31,33 +31,42 @@ export const StatusBar: React.FC = () => {
   const level = batteryLevel ?? 83;
 
   return (
-    <div className="iphone-status-bar relative z-[100] w-full pt-2 px-6 flex items-center justify-between select-none text-white bg-transparent">
-      {/* Notification Center hit target — must be a <button> so CSS pointer-events:auto applies */}
+    <div
+      className="iphone-status-bar absolute top-0 left-0 right-0 z-[120] w-full pt-[max(0.5rem,env(safe-area-inset-top))] pb-1 px-5 flex items-center justify-between select-none text-white bg-transparent"
+      style={{ pointerEvents: 'none' }}
+    >
+      {/* Notification Center — time (left) */}
       <button
         type="button"
         onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           toggleNotificationCenter();
         }}
-        className="w-20 min-h-[32px] flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0 text-inherit"
+        className="relative z-[121] min-w-[72px] min-h-[44px] pl-1 pr-2 flex items-center gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
+        style={{ pointerEvents: 'auto' }}
         title="Tap to open Notification Center"
         aria-label="Open Notification Center"
         data-status-hit="notification"
       >
         <span className="text-[15px] font-semibold tracking-tight tabular-nums">{time}</span>
-        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" title="Location active" />
+        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" title="Location active" />
       </button>
 
-      <DynamicIsland />
+      <div className="relative z-[121] pointer-events-auto">
+        <DynamicIsland />
+      </div>
 
-      {/* Control Center hit target — must be a <button> so CSS pointer-events:auto applies */}
+      {/* Control Center — signal / wifi / battery (right) */}
       <button
         type="button"
         onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           toggleControlCenter();
         }}
-        className="w-20 min-h-[32px] flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity bg-transparent border-0 p-0 text-inherit"
+        className="relative z-[121] min-w-[88px] min-h-[44px] pl-2 pr-1 flex items-center justify-end gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
+        style={{ pointerEvents: 'auto' }}
         title="Tap to open Control Center"
         aria-label="Open Control Center"
         data-status-hit="control"
