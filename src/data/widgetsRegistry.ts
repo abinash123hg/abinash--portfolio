@@ -1,4 +1,4 @@
-import { AppId } from '../types';
+﻿import { AppId } from '../types';
 
 export type WidgetSize = 'small' | 'medium' | 'large';
 
@@ -53,7 +53,7 @@ export const WIDGETS_REGISTRY: WidgetDefinition[] = [
   {
     id: 'widget-battery',
     type: 'battery',
-    title: 'Batteries',
+    title: 'Top Skills',
     category: 'System',
     description: 'Power levels for iPhone 15, AirPods Pro, and CUTM Cloud Lab Cluster.',
     supportedSizes: ['small', 'medium'],
@@ -129,3 +129,4 @@ export const DEFAULT_PLACED_WIDGETS: PlacedWidget[] = [
     page: 1
   }
 ];
+

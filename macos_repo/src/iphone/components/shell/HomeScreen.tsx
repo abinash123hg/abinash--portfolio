@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+﻿import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { APPS_REGISTRY } from '../../data/appsRegistry';
@@ -108,6 +108,7 @@ export const HomeScreen: React.FC = () => {
       className="iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between pb-20 px-3 select-none overflow-hidden"
       style={{ paddingTop: '72px' }}
     >
+      <h1 className="sr-only">Abinash Swain — AI/ML Portfolio</h1>
       <AnimatePresence>
         {isHomeEditing && (
           <motion.div
@@ -246,10 +247,10 @@ export const HomeScreen: React.FC = () => {
             <button
               key={idx}
               onClick={() => setHomePageIndex(idx)}
-              className={`h-1.5 rounded-full transition-all duration-200 ${
+              className={`min-h-[10px] min-w-[10px] h-2.5 rounded-full transition-all duration-200 ${
                 homePageIndex === idx
-                  ? isDark ? 'w-4 bg-white' : 'w-4 bg-zinc-900'
-                  : isDark ? 'w-1.5 bg-white/55 hover:bg-white/85' : 'w-1.5 bg-zinc-900/55 hover:bg-zinc-900/80'
+                  ? isDark ? 'w-5 bg-white' : 'w-5 bg-zinc-900'
+                  : isDark ? 'w-2.5 bg-white/55 hover:bg-white/85' : 'w-2.5 bg-zinc-900/55 hover:bg-zinc-900/80'
               }`}
               title={`Go to page ${idx + 1}`}
             />
@@ -269,10 +270,10 @@ export const HomeScreen: React.FC = () => {
       <div className="mb-2 flex justify-center">
         <button
           onClick={toggleSpotlight}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/85 hover:bg-white border-black/15 text-zinc-900'}`}
+          className={`flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full text-sm backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/85 hover:bg-white border-black/15 text-zinc-900'}`}
         >
-          <Search className={`w-3 h-3 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`} />
-          <span className="font-semibold text-[11px]">Search</span>
+          <Search className={`w-4 h-4 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`} aria-hidden="true" />
+          <span className="font-semibold text-sm">Search</span>
         </button>
       </div>
 
@@ -308,3 +309,4 @@ export const HomeScreen: React.FC = () => {
     </div>
   );
 };
+

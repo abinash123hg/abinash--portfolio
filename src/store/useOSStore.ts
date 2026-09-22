@@ -38,6 +38,10 @@ export interface OSState {
   focusMode: boolean;
   focusModeType: 'dnd' | 'work' | 'personal' | 'sleep';
   lowPowerMode: boolean;
+  batteryLevel: number | null;
+  isCharging: boolean | null;
+  isOnline: boolean;
+  networkType: string | null;
   reduceMotion: boolean;
   flashlight: boolean;
   flashlightLevel: 1 | 2 | 3 | 4;
@@ -150,6 +154,10 @@ const DEFAULT_STATE: OSState = {
   screenRecordingDuration: 0,
   micEnabled: true,
   activeAudioOutput: 'speaker',
+  batteryLevel: null,
+  isCharging: null,
+  isOnline: typeof navigator === 'undefined' ? true : navigator.onLine,
+  networkType: null,
   activeWifiNetwork: 'Abinash-Fiber-5G',
   activeBluetoothDevice: 'AirPods Pro (2nd Gen)',
   textSizePercent: 100,
@@ -212,6 +220,43 @@ export const setOSState = (updater: Partial<OSState> | ((prev: OSState) => OSSta
   });
 };
 
+
+const initializeDeviceTelemetry = () => {
+  if (typeof window === 'undefined') return;
+
+  const updateConnection = () => {
+    const connection = (navigator as Navigator & { connection?: { type?: string; effectiveType?: string } }).connection;
+    setOSState({
+      isOnline: navigator.onLine,
+      networkType: connection?.type || connection?.effectiveType || null
+    });
+  };
+
+  window.addEventListener('online', updateConnection);
+  window.addEventListener('offline', updateConnection);
+  const connection = (navigator as Navigator & { connection?: EventTarget & { type?: string; effectiveType?: string } }).connection;
+  connection?.addEventListener('change', updateConnection);
+  updateConnection();
+
+  const batteryNavigator = navigator as Navigator & {
+    getBattery?: () => Promise<{
+      level: number;
+      charging: boolean;
+      addEventListener: (type: string, listener: () => void) => void;
+    }>;
+  };
+  batteryNavigator.getBattery?.().then((battery) => {
+    const updateBattery = () => setOSState({
+      batteryLevel: Math.round(battery.level * 100),
+      isCharging: battery.charging
+    });
+    battery.addEventListener('levelchange', updateBattery);
+    battery.addEventListener('chargingchange', updateBattery);
+    updateBattery();
+  }).catch(() => undefined);
+};
+
+initializeDeviceTelemetry();
 // Initialize audio player subscription
 if (typeof window !== 'undefined') {
   audioPlayer.subscribe((audioState) => {
