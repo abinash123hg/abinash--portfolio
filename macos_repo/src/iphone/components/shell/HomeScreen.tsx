@@ -26,7 +26,6 @@ export const HomeScreen: React.FC = () => {
   const longPressTimerRef = useRef<any>(null);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
-  // Filter dock apps and page-specific apps
   const dockApps = APPS_REGISTRY.filter((app) => app.dock);
 
   const page0AppIds: AppId[] = ['about', 'skills', 'experience', 'certifications', 'education', 'contact'];
@@ -47,7 +46,6 @@ export const HomeScreen: React.FC = () => {
   const currentWidgets = placedWidgets.filter((w) => w.page === homePageIndex);
   const currentApps = getAppsForPage(homePageIndex);
 
-  // Touch Swipe Handlers for Page Turning
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);
     longPressTimerRef.current = setTimeout(() => {
@@ -91,6 +89,8 @@ export const HomeScreen: React.FC = () => {
     }
   };
 
+  const labelClass = 'text-[11px] font-medium tracking-tight truncate max-w-[66px] text-center text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)]';
+
   return (
     <div
       onContextMenu={(e) => {
@@ -102,9 +102,8 @@ export const HomeScreen: React.FC = () => {
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="relative flex-1 min-h-0 w-full flex flex-col justify-between pt-1 pb-20 px-3 select-none overflow-hidden"
+      className="relative flex-1 min-h-0 w-full flex flex-col justify-between pt-[calc(2.75rem+env(safe-area-inset-top,0px))] pb-20 px-3 select-none overflow-hidden"
     >
-      {/* Edit Mode Top Toolbar (iOS 18 Authenticity) */}
       <AnimatePresence>
         {isHomeEditing && (
           <motion.div
@@ -113,7 +112,6 @@ export const HomeScreen: React.FC = () => {
             exit={{ opacity: 0, y: -20 }}
             className="flex items-center justify-between px-2 py-1 mb-1 z-30"
           >
-            {/* + Button for Widget Gallery */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -124,8 +122,6 @@ export const HomeScreen: React.FC = () => {
               <Plus className="w-3.5 h-3.5" />
               <span>Widget</span>
             </button>
-
-            {/* Done Button */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -140,9 +136,7 @@ export const HomeScreen: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Multi-Page Screen Area */}
       <div className="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col justify-start">
-        {/* Placed Widgets on This Page */}
         {currentWidgets.length > 0 && (
           <div className="grid grid-cols-4 gap-3 mb-3.5 px-0.5">
             {currentWidgets.map((w) => (
@@ -151,7 +145,6 @@ export const HomeScreen: React.FC = () => {
           </div>
         )}
 
-        {/* Apps Grid (4 Columns) */}
         <div className="grid grid-cols-4 gap-y-4 gap-x-2 px-1 justify-items-center">
           {currentApps.map((app) => (
             <motion.div
@@ -166,28 +159,19 @@ export const HomeScreen: React.FC = () => {
                 isHomeEditing ? 'animate-jiggle' : ''
               }`}
             >
-              {/* Squircle App Icon */}
               <div className="relative">
                 <div
                   className={`w-[58px] h-[58px] rounded-[16px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all border border-white/20`}
                 >
                   <AppIconGlyph name={app.iconName} className="w-7 h-7 text-white drop-shadow-sm" />
                 </div>
-
-                {/* Notification Badge */}
                 {!isHomeEditing && app.badge && (
                   <span className="absolute -top-1 -right-1 px-1.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-rose-500 text-white text-[10px] font-bold shadow-md border border-white">
                     {app.badge}
                   </span>
                 )}
               </div>
-
-              {/* App Label */}
-              <span
-                className={`text-[11px] font-medium tracking-tight truncate max-w-[66px] text-center ${isDark ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-zinc-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]'}`}
-              >
-                {app.name}
-              </span>
+              <span className={labelClass}>{app.name}</span>
             </motion.div>
           ))}
 
@@ -209,9 +193,7 @@ export const HomeScreen: React.FC = () => {
                 <div className="w-4 h-4 rounded-xs bg-purple-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-amber-500/80" />
               </div>
-              <span className={`text-[11px] font-medium tracking-tight ${isDark ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-zinc-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]'}`}>
-                Dev Tools
-              </span>
+              <span className={labelClass}>Dev Tools</span>
             </motion.div>
           )}
 
@@ -233,15 +215,12 @@ export const HomeScreen: React.FC = () => {
                 <div className="w-4 h-4 rounded-xs bg-teal-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-pink-500/80" />
               </div>
-              <span className={`text-[11px] font-medium tracking-tight ${isDark ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-zinc-900 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]'}`}>
-                Media
-              </span>
+              <span className={labelClass}>Media</span>
             </motion.div>
           )}
         </div>
       </div>
 
-      {/* Page Dots & Navigation Chevron Indicators */}
       <div className="my-2 flex items-center justify-center gap-3">
         {homePageIndex > 0 && (
           <button
@@ -252,7 +231,6 @@ export const HomeScreen: React.FC = () => {
             <ChevronLeft className="w-3.5 h-3.5" />
           </button>
         )}
-
         <div className={`flex items-center gap-1.5 backdrop-blur-md px-2.5 py-1 rounded-full border ${isDark ? 'bg-black/25 border-white/10' : 'bg-white/45 border-black/10'}`}>
           {[0, 1, 2].map((idx) => (
             <button
@@ -267,7 +245,6 @@ export const HomeScreen: React.FC = () => {
             />
           ))}
         </div>
-
         {homePageIndex < 2 && (
           <button
             onClick={() => setHomePageIndex(homePageIndex + 1)}
@@ -279,7 +256,6 @@ export const HomeScreen: React.FC = () => {
         )}
       </div>
 
-      {/* Search Pill Button */}
       <div className="mb-2 flex justify-center">
         <button
           onClick={toggleSpotlight}
@@ -290,7 +266,6 @@ export const HomeScreen: React.FC = () => {
         </button>
       </div>
 
-      {/* Persistent Floating iOS Liquid Glass Dock */}
       <div className="absolute bottom-2 left-0 right-0 z-30 px-3">
         <div className={`p-2.5 rounded-[34px] mx-auto max-w-[340px] flex items-center justify-around border shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${isDark ? 'bg-zinc-900/45 border-white/25' : 'bg-white/85 border-black/15'}`}>
           {dockApps.map((app) => (
