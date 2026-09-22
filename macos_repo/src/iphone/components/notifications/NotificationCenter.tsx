@@ -34,7 +34,7 @@ export const NotificationCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-        className="absolute inset-0 z-50 flex flex-col bg-black/65 backdrop-blur-2xl text-white select-none overflow-hidden"
+        className="ios-notification-center absolute inset-0 z-[60] flex flex-col bg-black/65 backdrop-blur-2xl text-white select-none overflow-hidden"
       >
         {/* Top Handle & Dismiss Bar */}
         <div className="pt-10 px-6 pb-3 flex flex-col items-center">
