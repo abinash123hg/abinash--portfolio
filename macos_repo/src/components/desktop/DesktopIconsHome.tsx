@@ -108,8 +108,9 @@ export const DesktopIconsHome: React.FC = () => {
   return (
     <>
       <SquircleDefs />
-      <div 
-        className="absolute top-10 right-8 z-10 select-none pointer-events-auto grid grid-cols-4 gap-y-5 gap-x-5 p-2 w-max"
+      {/* right-12 (~48px) gutter keeps icons clear of viewport edge; gap-y-7 gives selection highlight breathing room */}
+      <div
+        className="absolute top-10 right-12 z-10 select-none pointer-events-auto grid grid-cols-4 gap-y-7 gap-x-5 p-2 w-max"
         onClick={() => setSelectedId(null)}
       >
         {desktopIcons.map((item) => {
@@ -123,7 +124,7 @@ export const DesktopIconsHome: React.FC = () => {
                 setSelectedId(item.id);
                 handleLaunch(item);
               }}
-              className={`w-[88px] p-2 rounded-[8px] flex flex-col items-center gap-2 cursor-pointer transition-all ${
+              className={`w-[96px] p-2 rounded-lg flex flex-col items-center gap-2 cursor-pointer transition-all ${
                 isSelected ? 'bg-black/25 backdrop-blur-xs ring-1 ring-white/30' : 'hover:bg-white/10'
               }`}
             >
@@ -132,9 +133,9 @@ export const DesktopIconsHome: React.FC = () => {
                 {item.icon}
               </div>
 
-              {/* Textual Label under each icon */}
+              {/* Label: allow 2 lines instead of truncating with ellipsis */}
               <span
-                className={`text-[11px] font-medium text-white px-1.5 py-0.5 rounded-[4px] leading-tight text-center truncate max-w-[80px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
+                className={`text-[11px] font-medium text-white px-1.5 py-0.5 rounded-sm leading-tight text-center line-clamp-2 max-w-[92px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
                   isSelected ? 'bg-[#007aff] text-white shadow-xs font-semibold' : ''
                 }`}
               >
