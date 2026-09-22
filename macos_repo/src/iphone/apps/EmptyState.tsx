@@ -31,7 +31,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
         <h2 className={`text-base font-bold mb-1.5 ${isDark ? 'text-white' : 'text-zinc-900'}`}>
           {title}
         </h2>
-        <p className="text-xs text-zinc-400 max-w-[260px] leading-relaxed mb-6">
+        <p className={isDark ? 'text-xs text-zinc-400 max-w-[260px] leading-relaxed mb-6' : 'text-xs text-zinc-500 max-w-[260px] leading-relaxed mb-6'}>
           {message}
         </p>
 
