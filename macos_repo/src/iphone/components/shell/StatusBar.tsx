@@ -5,7 +5,6 @@ import { useOSStore } from '../../store/useOSStore';
 
 export const StatusBar: React.FC = () => {
   const {
-    theme,
     toggleControlCenter,
     toggleNotificationCenter,
     lowPowerMode,
@@ -29,16 +28,10 @@ export const StatusBar: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const isDark = theme === 'dark';
-  // Status bar sits on the wallpaper in both themes — same treatment as dark:
-  // white glyphs, no tinted/frosted layer.
-  const textColor = 'text-white';
   const level = batteryLevel ?? 83;
 
   return (
-    <div
-      className={`relative z-40 w-full pt-2 px-6 flex items-center justify-between select-none ${textColor} bg-transparent`}
-    >
+    <div className="iphone-status-bar relative z-40 w-full pt-2 px-6 flex items-center justify-between select-none text-white bg-transparent">
       <div
         onClick={() => toggleNotificationCenter()}
         className="w-20 flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
