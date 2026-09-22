@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Wifi, BatteryMedium, Sparkles } from 'lucide-react';
+import { Wifi } from 'lucide-react';
 import { DynamicIsland } from './DynamicIsland';
 import { useOSStore } from '../../store/useOSStore';
 
@@ -13,8 +13,7 @@ export const StatusBar: React.FC = () => {
     airplaneMode,
     batteryLevel,
     isCharging,
-    isOnline,
-    networkType
+    isOnline
   } = useOSStore();
   const [time, setTime] = useState<string>('9:41');
 
@@ -23,9 +22,7 @@ export const StatusBar: React.FC = () => {
       const now = new Date();
       const hours = now.getHours();
       const minutes = now.getMinutes().toString().padStart(2, '0');
-      // 12-hour format or standard format
-      const formatted = `${hours % 12 || 12}:${minutes}`;
-      setTime(formatted);
+      setTime(`${hours % 12 || 12}:${minutes}`);
     };
     updateTime();
     const interval = setInterval(updateTime, 10000);
@@ -33,57 +30,70 @@ export const StatusBar: React.FC = () => {
   }, []);
 
   const isDark = theme === 'dark';
-  const textColor = isDark ? 'text-white' : 'text-zinc-900';
+  const textColor = isDark ? 'text-white' : 'text-zinc-950';
+  const level = batteryLevel ?? 83;
 
   return (
-    <div className={`relative z-40 w-full pt-2 px-6 flex items-center justify-between select-none ${textColor}`}>
-      {/* Left: Time & Location Indicator -> Notification Center */}
+    <div
+      className={`relative z-40 w-full pt-2 pb-1 px-6 flex items-center justify-between select-none ${textColor} ${
+        isDark
+          ? 'bg-gradient-to-b from-black/35 to-transparent'
+          : 'bg-gradient-to-b from-white/80 via-white/55 to-transparent backdrop-blur-[2px]'
+      }`}
+      style={{
+        textShadow: isDark
+          ? '0 1px 2px rgba(0,0,0,0.55)'
+          : '0 1px 0 rgba(255,255,255,0.9)'
+      }}
+    >
       <div
         onClick={() => toggleNotificationCenter()}
-        className="w-20 flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+        className="w-[4.6rem] flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
         title="Tap to open Notification Center"
       >
-        <span className="text-[14px] font-semibold tracking-tight">{time}</span>
-        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 opacity-80" title="Location active" />
+        <span className="text-[15px] font-bold tracking-tight tabular-nums">{time}</span>
+        <span
+          className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-cyan-300' : 'bg-cyan-600'}`}
+          title="Location active"
+        />
       </div>
 
-      {/* Center: Dynamic Island */}
       <DynamicIsland />
 
-      {/* Right: Cellular, Wi-Fi, Battery */}
       <div
         onClick={toggleControlCenter}
-        className="w-20 flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
+        className="w-[4.6rem] flex items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
         title="Tap to open Control Center"
       >
-        {/* Cellular 4 bars */}
         {!airplaneMode ? (
-          <div className="flex items-end gap-0.5 h-3">
-            <span className="w-[2.5px] h-1 bg-current rounded-xs" />
-            <span className="w-[2.5px] h-1.5 bg-current rounded-xs" />
-            <span className="w-[2.5px] h-2 bg-current rounded-xs" />
-            <span className="w-[2.5px] h-2.5 bg-current rounded-xs" />
+          <div className="flex items-end gap-[1.5px] h-3" aria-label="Cellular signal">
+            <span className="w-[2.5px] h-1 bg-current rounded-[0.5px]" />
+            <span className="w-[2.5px] h-1.5 bg-current rounded-[0.5px]" />
+            <span className="w-[2.5px] h-2 bg-current rounded-[0.5px]" />
+            <span className="w-[2.5px] h-2.5 bg-current rounded-[0.5px]" />
           </div>
         ) : (
-          <span className="text-[10px] font-semibold uppercase tracking-wider">SOS</span>
+          <span className="text-[10px] font-bold uppercase tracking-wider">SOS</span>
         )}
 
-        {/* Wi-Fi */}
-        {wifi && isOnline && <Wifi className="w-3.5 h-3.5" />}
+        {wifi && isOnline && <Wifi className="w-3.5 h-3.5 stroke-[2.6]" />}
 
-        {/* Battery with percentage */}
         <div className="flex items-center gap-0.5">
-          <span className="text-[11px] font-medium tracking-tighter">{batteryLevel === null ? '98' : batteryLevel}%</span>
+          <span className="text-[11px] font-bold tracking-tight tabular-nums">{level}%</span>
           <div className="relative flex items-center">
-            <div className={`w-5 h-2.5 rounded-[3px] border border-current p-0.5 flex items-center ${lowPowerMode ? 'bg-amber-500/20' : ''}`}>
+            <div
+              className={`w-[22px] h-[11px] rounded-[3px] border-[1.5px] border-current p-[1.5px] flex items-center ${
+                lowPowerMode ? 'bg-amber-500/15' : ''
+              }`}
+            >
               <div
-                className={`h-full rounded-[1.5px] ${
-                  lowPowerMode ? 'bg-amber-400' : isCharging ? 'bg-emerald-400' : 'bg-current'
+                className={`h-full rounded-[1px] ${
+                  lowPowerMode ? 'bg-amber-500' : isCharging ? 'bg-emerald-500' : 'bg-current'
                 }`}
-                style={{ width: `${batteryLevel ?? 92}%` }}
+                style={{ width: `${Math.max(8, Math.min(100, level))}%` }}
               />
             </div>
-            <div className="w-0.5 h-1 bg-current rounded-r-xs ml-[0.5px]" />
+            <div className="w-[2px] h-[5px] bg-current rounded-r-sm ml-[1px] opacity-90" />
           </div>
         </div>
       </div>
