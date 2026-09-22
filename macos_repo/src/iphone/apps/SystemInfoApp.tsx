@@ -26,16 +26,14 @@ export const SystemInfoApp: React.FC = () => {
       <AppHeader title="About" subtitle="Device & Candidate Specs" />
 
       <div className="p-4 space-y-4">
-        {/* Device Icon Monogram */}
         <div className="flex flex-col items-center justify-center py-2 text-center">
-          <div className="w-16 h-16 rounded-3xl bg-zinc-800 border border-white/10 flex items-center justify-center text-white shadow-xl mb-2">
+          <div className={isDark ? 'w-16 h-16 rounded-3xl bg-zinc-800 border border-white/10 flex items-center justify-center text-white shadow-xl mb-2' : 'w-16 h-16 rounded-3xl bg-zinc-800 border border-zinc-200 flex items-center justify-center text-white shadow-xl mb-2'}>
             <Smartphone className="w-8 h-8 text-blue-400" />
           </div>
           <h2 className={`text-base font-bold ${isDark ? 'text-white' : 'text-zinc-900'}`}>iPhone 15</h2>
-          <p className="text-xs text-zinc-400">Abinash Swain AI/ML Candidate Edition</p>
+          <p className={isDark ? 'text-xs text-zinc-400' : 'text-xs text-zinc-500'}>Abinash Swain AI/ML Candidate Edition</p>
         </div>
 
-        {/* Specifications Table */}
         <div
           className={`rounded-3xl border shadow-md overflow-hidden divide-y ${
             isDark ? 'bg-zinc-900/80 border-white/10 text-white divide-white/10' : 'bg-white border-zinc-200 text-zinc-900 divide-zinc-200'
@@ -51,7 +49,6 @@ export const SystemInfoApp: React.FC = () => {
           ))}
         </div>
 
-        {/* Storage Bar Simulation */}
         <div
           className={`p-4 rounded-3xl border shadow-md ${
             isDark ? 'bg-zinc-900/80 border-white/10 text-white' : 'bg-white border-zinc-200 text-zinc-900'
@@ -69,7 +66,7 @@ export const SystemInfoApp: React.FC = () => {
             <div className="w-[6%] bg-amber-500" title="Certificates" />
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-400">
+          <div className={isDark ? 'mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-400' : 'mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500'}>
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-blue-500" />
               <span>RAG Pipelines</span>
