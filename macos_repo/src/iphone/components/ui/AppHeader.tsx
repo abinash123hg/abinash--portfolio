@@ -40,7 +40,6 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
           : 'bg-white/85 backdrop-blur-xl border-zinc-200/90 text-zinc-900'
       }`}
     >
-      {/* Left Back Button */}
       <button
         onClick={handleBack}
         className="flex items-center gap-1 text-sm font-medium text-blue-500 hover:text-blue-400 active:opacity-70 transition-all cursor-pointer min-w-[65px]"
@@ -49,28 +48,28 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
         <span>{backLabel}</span>
       </button>
 
-      {/* Center Title (tap to refresh) */}
       <div
         onClick={handleManualRefresh}
         className="flex-1 text-center px-1 min-w-0 cursor-pointer group"
         title="Tap to refresh"
       >
-        <h1 className="text-sm font-semibold tracking-tight truncate leading-tight group-hover:text-blue-400 transition-colors">
+        <h1 className="text-sm font-semibold tracking-tight truncate leading-tight group-hover:text-blue-500 transition-colors">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-[10px] text-zinc-400 truncate -mt-0.5">
+          <p className={`text-[10px] truncate -mt-0.5 ${isDark ? 'text-zinc-400' : 'text-zinc-500'}`}>
             {subtitle}
           </p>
         )}
       </div>
 
-      {/* Right Action */}
       <div className="min-w-[65px] flex items-center justify-end">
         {rightAction || (
           <button
             onClick={handleManualRefresh}
-            className="w-7 h-7 rounded-full flex items-center justify-center text-zinc-400 hover:text-blue-400 hover:bg-white/10 active:scale-95 transition-all cursor-pointer"
+            className={`w-7 h-7 rounded-full flex items-center justify-center hover:text-blue-500 active:scale-95 transition-all cursor-pointer ${
+              isDark ? 'text-zinc-400 hover:bg-white/10' : 'text-zinc-500 hover:bg-zinc-100'
+            }`}
             title="Refresh"
             aria-label="Refresh app"
           >
