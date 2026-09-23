@@ -105,8 +105,8 @@ export const HomeScreen: React.FC = () => {
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="ios-wallpaper-text iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between pb-20 px-3 select-none overflow-hidden"
-      style={{ paddingTop: '72px' }}
+      className="ios-wallpaper-text iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between px-3 select-none overflow-hidden"
+      style={{ paddingTop: '72px', paddingBottom: 'calc(76px + 58px)' }}
     >
       <h1 className="sr-only">Abinash Swain — AI/ML Portfolio</h1>
       <AnimatePresence>
@@ -232,7 +232,7 @@ export const HomeScreen: React.FC = () => {
         </div>
       </div>
 
-      <div className="my-2 flex items-center justify-center gap-3">
+      <div className="mt-2 mb-2.5 flex items-center justify-center gap-3">
         {homePageIndex > 0 && (
           <button
             onClick={() => setHomePageIndex(homePageIndex - 1)}
@@ -267,7 +267,8 @@ export const HomeScreen: React.FC = () => {
         )}
       </div>
 
-      <div className="mb-2 flex justify-center">
+      {/* Search pill — sits above the dock (dock is absolutely positioned at the bottom) */}
+      <div className="mb-3.5 flex justify-center">
         <button
           onClick={toggleSpotlight}
           className={`flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full text-sm backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/85 hover:bg-white border-black/15 text-zinc-900'}`}

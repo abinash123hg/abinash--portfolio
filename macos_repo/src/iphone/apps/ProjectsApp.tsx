@@ -18,6 +18,7 @@ import { AppHeader } from '../components/ui/AppHeader';
 import { PORTFOLIO_DATA } from '../data/portfolio';
 import { Project } from '../types';
 import { useOSStore } from '../store/useOSStore';
+import { ProjectThumbnail } from '../../components/ui/ProjectThumbnail';
 
 export const ProjectsApp: React.FC = () => {
   const { selectedProjectId, selectProject, openSafari, theme } = useOSStore();
@@ -129,6 +130,14 @@ export const ProjectsApp: React.FC = () => {
                 : 'bg-white border-zinc-200 hover:border-blue-500/40 text-zinc-900'
             }`}
           >
+            {/* Live thumbnail — screenshot of the project's own GitHub page */}
+            <ProjectThumbnail
+              url={project.githubUrl}
+              title={project.title}
+              accent="#0ea5e9"
+              className="w-full aspect-[16/9] rounded-2xl mb-3 border border-white/10"
+            />
+
             <div className="flex items-start justify-between">
               <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-400">
                 {project.category}

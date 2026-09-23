@@ -57,7 +57,7 @@ export const StatusBar: React.FC = () => {
           e.stopPropagation();
           toggleNotificationCenter();
         }}
-        className="relative z-[121] min-w-[72px] min-h-[44px] pl-1 pr-2 flex items-center gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
+        className="relative z-[121] min-w-[64px] min-h-[44px] pl-1 pr-1 flex items-center gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
         style={{ pointerEvents: 'auto' }}
         title="Tap to open Notification Center"
         aria-label="Open Notification Center"
@@ -79,7 +79,7 @@ export const StatusBar: React.FC = () => {
           e.stopPropagation();
           toggleControlCenter();
         }}
-        className="relative z-[121] min-w-[88px] min-h-[44px] pl-2 pr-1 flex items-center justify-end gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
+        className="relative z-[121] min-w-[64px] min-h-[44px] pl-1 pr-1 flex items-center justify-end gap-1.5 cursor-pointer active:opacity-70 transition-opacity bg-transparent border-0 p-0 text-inherit touch-manipulation"
         style={{ pointerEvents: 'auto' }}
         title="Tap to open Control Center"
         aria-label="Open Control Center"

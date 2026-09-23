@@ -25,6 +25,7 @@ import {
   Send
 } from 'lucide-react';
 import { sound } from '../../utils/audioHaptics';
+import { ProjectThumbnail } from '../ui/ProjectThumbnail';
 
 export const ProjectsApp: React.FC = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>(portfolioData.projects[0].id);
@@ -205,6 +206,14 @@ export const ProjectsApp: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
           {activeTab === 'case-study' && cs ? (
             <div className="space-y-6 max-w-4xl">
+              {/* Live project thumbnail — generated from the project's own GitHub link */}
+              <ProjectThumbnail
+                url={selectedProject.githubUrl}
+                title={selectedProject.title}
+                accent={selectedProject.color}
+                className="w-full aspect-video rounded-2xl border border-neutral-800 shadow-xl"
+              />
+
               {/* Case Study Header */}
               <div className="space-y-2">
                 <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-xs font-semibold text-cyan-300">
@@ -362,6 +371,14 @@ export const ProjectsApp: React.FC = () => {
           ) : activeTab === 'overview' || !cs ? (
             /* Traditional Overview Tab */
             <>
+              {/* Live project thumbnail — generated from the project's own GitHub link */}
+              <ProjectThumbnail
+                url={selectedProject.githubUrl}
+                title={selectedProject.title}
+                accent={selectedProject.color}
+                className="w-full aspect-video rounded-2xl border border-neutral-800 shadow-xl"
+              />
+
               {/* Project Header */}
               <div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-cyan-400">

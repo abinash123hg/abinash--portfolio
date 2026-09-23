@@ -31,9 +31,9 @@ export const DynamicIsland: React.FC = () => {
         }}
         className={`bg-black text-white cursor-pointer shadow-2xl transition-all duration-300 flex items-center justify-between overflow-hidden border border-zinc-800/80 ${
           isDynamicIslandExpanded
-            ? 'w-[320px] min-h-[76px] rounded-[32px] p-3.5 px-4'
+            ? 'w-[168px] min-h-[64px] rounded-[26px] p-2.5'
             : dynamicIslandMode !== 'idle'
-            ? 'w-[185px] h-[34px] rounded-full px-3'
+            ? 'w-[160px] h-[32px] rounded-full px-2.5'
             : 'w-[124px] h-[32px] rounded-full px-2.5'
         }`}
         animate={{
@@ -108,14 +108,14 @@ export const DynamicIsland: React.FC = () => {
                       toggleDynamicIsland(false);
                     }}
                   >
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-tr ${currentTrack.coverColor} flex items-center justify-center shadow-md`}>
-                      <Music className="w-5 h-5 text-white" />
+                    <div className={`w-7 h-7 rounded-lg bg-gradient-to-tr ${currentTrack.coverColor} flex items-center justify-center shadow-md shrink-0`}>
+                      <Music className="w-3.5 h-3.5 text-white" />
                     </div>
-                    <div className="text-left">
-                      <div className="text-xs font-semibold text-white truncate max-w-[130px]">
+                    <div className="text-left min-w-0">
+                      <div className="text-[10px] font-semibold text-white truncate">
                         {currentTrack.title}
                       </div>
-                      <div className="text-[10px] text-zinc-400 truncate max-w-[130px]">
+                      <div className="text-[9px] text-zinc-400 truncate">
                         {currentTrack.artist}
                       </div>
                     </div>
@@ -123,16 +123,16 @@ export const DynamicIsland: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={toggleMusic}
-                      className="w-8 h-8 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-white"
+                      className="w-6 h-6 rounded-full bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-white shrink-0"
                       title={isPlayingMusic ? 'Pause' : 'Play'}
                     >
-                      {isPlayingMusic ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
+                      {isPlayingMusic ? <Pause className="w-3 h-3 fill-current" /> : <Play className="w-3 h-3 fill-current ml-0.5" />}
                     </button>
                     <button
                       onClick={() => toggleDynamicIsland(false)}
-                      className="w-7 h-7 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center"
+                      className="w-6 h-6 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center shrink-0"
                     >
-                      <X className="w-3.5 h-3.5" />
+                      <X className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
@@ -145,19 +145,19 @@ export const DynamicIsland: React.FC = () => {
                       toggleDynamicIsland(false);
                     }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-cyan-400" />
+                    <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center shrink-0">
+                      <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-white">DocuRAG Live Engine</div>
-                      <div className="text-[10px] text-cyan-400">Context Precision 94.2% • &lt;580ms</div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-semibold text-white truncate">DocuRAG Engine</div>
+                      <div className="text-[9px] text-cyan-400 whitespace-nowrap">94.2% precision</div>
                     </div>
                   </div>
                   <button
                     onClick={() => toggleDynamicIsland(false)}
-                    className="w-7 h-7 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center"
+                    className="w-6 h-6 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center shrink-0"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="w-3 h-3" />
                   </button>
                 </div>
               ) : (
@@ -169,19 +169,19 @@ export const DynamicIsland: React.FC = () => {
                       toggleDynamicIsland(false);
                     }}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
-                      <Sparkles className="w-5 h-5 text-blue-400" />
+                    <div className="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0">
+                      <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold text-white">Abinash Swain • 2027 AI/ML</div>
-                      <div className="text-[10px] text-zinc-400">Open to LLM & RAG Engineering</div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-semibold text-white truncate">Abinash • AI/ML 2027</div>
+                      <div className="text-[9px] text-zinc-400 truncate">Open to LLM & RAG</div>
                     </div>
                   </div>
                   <button
                     onClick={() => toggleDynamicIsland(false)}
-                    className="w-7 h-7 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center"
+                    className="w-6 h-6 rounded-full bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center shrink-0"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <X className="w-3 h-3" />
                   </button>
                 </div>
               )}

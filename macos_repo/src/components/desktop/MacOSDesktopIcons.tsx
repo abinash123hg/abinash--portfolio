@@ -14,7 +14,7 @@ export const SquircleDefs: React.FC = () => (
 
 // 1. Macintosh HD: Hyper-realistic 3D silver classic internal hard drive / aluminum chassis
 export const MacintoshHDIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="mhd-body" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -83,7 +83,7 @@ export const MacintoshHDIcon: React.FC = () => (
 
 // 2. Projects & Models: Official macOS blue physical textured file folder with papers peeking out
 export const ProjectsFolderIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="folder-back" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -150,7 +150,7 @@ export const ProjectsFolderIcon: React.FC = () => (
 
 // 3. Certifications: Premium Apple-style certificate scroll tied with a realistic red ribbon
 export const CertificationsIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="cert-parchment" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -213,7 +213,7 @@ export const CertificationsIcon: React.FC = () => (
 
 // 4. Mail Contact: Official macOS Mail postage stamp icon with metallic eagle silhouette
 export const MailPostageStampIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="mail-bg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -285,7 +285,7 @@ export const MailPostageStampIcon: React.FC = () => (
 
 // 5. Photos Library: Authentic multi-colored translucent glass flower petal macOS Photos icon
 export const PhotosLibraryIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-white shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-black/10 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-white shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-black/10 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full p-1" fill="none">
       <defs>
         {/* 8 macOS Petal Colors with Soft Transparency */}
@@ -367,7 +367,7 @@ export const PhotosLibraryIcon: React.FC = () => (
 
 // 6. iCloud Drive: Realistic semi-translucent glass squircle featuring a 3D white cloud
 export const ICloudDriveIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-br from-[#38BDF8] via-[#0284C7] to-[#1D4ED8] shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.7)] border border-white/30 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-br from-[#38BDF8] via-[#0284C7] to-[#1D4ED8] shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.7)] border border-white/30 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="cloud-shading" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -403,7 +403,7 @@ export const ICloudDriveIcon: React.FC = () => (
 
 // 7. Analytics Lab: Premium macOS-style stock/graph icon with neon green fluctuating trend line over dark glass grid
 export const AnalyticsLabIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#020617] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#020617] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="neon-area" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -451,7 +451,7 @@ export const AnalyticsLabIcon: React.FC = () => (
 
 // 8. Timeline & Events: Physical macOS Calendar page style icon, displaying red header and grid lines
 export const TimelineCalendarIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="cal-header" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -488,7 +488,7 @@ export const TimelineCalendarIcon: React.FC = () => (
 
 // 9. Ask Abinash AI: Authentic, glowing Siri-style or AI-style colorful abstract glass orb sitting inside squircle
 export const AskAbinashAIIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#18181B] via-[#09090B] to-[#000000] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/25 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#18181B] via-[#09090B] to-[#000000] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.25)] border border-white/25 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <radialGradient id="siri-glow" cx="50%" cy="50%" r="50%">
@@ -538,7 +538,7 @@ export const AskAbinashAIIcon: React.FC = () => (
 
 // 10. Cinema Favorites: Physical metallic macOS movie clapboard with realistic wood grain textures
 export const CinemaFavoritesIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="clapper-slate" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -587,7 +587,7 @@ export const CinemaFavoritesIcon: React.FC = () => (
 
 // 11. Resume_Abinash.pdf: Realistic white document icon with red corner tag, PDF emblem and mini preview sheet layout
 export const ResumePdfIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="doc-paper" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -635,7 +635,7 @@ export const ResumePdfIcon: React.FC = () => (
 
 // 12. Work History: Realistic leather premium executive briefcase with metallic latches
 export const WorkHistoryIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="briefcase-leather" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -702,7 +702,7 @@ export const WorkHistoryIcon: React.FC = () => (
 
 // 13. Engineering Notes: Physical yellow legal notepad with a realistic wooden yellow pencil laying diagonally across it
 export const EngineeringNotesIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="pad-yellow" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -754,7 +754,7 @@ export const EngineeringNotesIcon: React.FC = () => (
 
 // 14. Game Center: Official Apple Game Center icon featuring floating, vibrant, glossy 3D colored balloons
 export const GameCenterIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-white shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-black/10 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-white shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-black/10 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full p-1" fill="none">
       <defs>
         {/* 4 Glossy 3D Balloon Gradients */}
@@ -810,7 +810,7 @@ export const GameCenterIcon: React.FC = () => (
 
 // 15. Apple Music: Authentic, glossy red macOS Apple Music squircle icon with white 3D musical note extrusion
 export const AppleMusicIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#FA2D48] via-[#FB233B] to-[#D9142E] shadow-[0_5px_12px_rgba(250,45,72,0.45),inset_0_1px_1px_rgba(255,255,255,0.7)] border border-white/30 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#FA2D48] via-[#FB233B] to-[#D9142E] shadow-[0_5px_12px_rgba(250,45,72,0.45),inset_0_1px_1px_rgba(255,255,255,0.7)] border border-white/30 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="music-note-3d" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -837,7 +837,7 @@ export const AppleMusicIcon: React.FC = () => (
 
 // 16. Recruiter Brief: Authentic Apple-style dark developer icon with code glyphs inside
 export const RecruiterBriefIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#1F2937] via-[#111827] to-[#030712] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#1F2937] via-[#111827] to-[#030712] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="code-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -891,7 +891,7 @@ export const RecruiterBriefIcon: React.FC = () => (
 
 // 17. Academics & CGPA: Physical navy blue graduation cap with realistic dangling silky yellow tassel
 export const AcademicsGradCapIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="cap-navy" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -943,7 +943,7 @@ export const AcademicsGradCapIcon: React.FC = () => (
 
 // 18. Terminal zsh: Premium dark glass macOS Terminal window showing color-coded command-line text prompts
 export const TerminalZshIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#18181B] via-[#09090B] to-[#000000] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#18181B] via-[#09090B] to-[#000000] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.2)] border border-white/20 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       {/* Top Window Chrome Bar */}
       <rect x="0" y="0" width="100" height="22" fill="#27272A" />
@@ -978,7 +978,7 @@ export const TerminalZshIcon: React.FC = () => (
 
 // 19. HR Politely: Official macOS Contacts style book icon with realistic paper edge layers and leather silhouette tab
 export const HrPolitelyContactsIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="book-leather" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1025,7 +1025,7 @@ export const HrPolitelyContactsIcon: React.FC = () => (
 
 // 20. System Settings: Authentic Apple macOS System Settings icon—heavy 3D metallic silver industrial gear
 export const SystemSettingsIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#475569] via-[#334155] to-[#1E293B] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] border border-white/30 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#475569] via-[#334155] to-[#1E293B] shadow-[0_5px_12px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] border border-white/30 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full p-0.5" fill="none">
       <defs>
         <radialGradient id="gear-metal" cx="50%" cy="50%" r="50%">
@@ -1060,7 +1060,7 @@ export const SystemSettingsIcon: React.FC = () => (
 
 // 21. About Abinash: Elegant, official "About This Mac" silver Apple silhouette logo
 export const AboutAbinashIcon: React.FC = () => (
-  <div className="w-12 h-12 rounded-[13px] relative flex items-center justify-center bg-gradient-to-b from-[#F8FAFC] via-[#E2E8F0] to-[#CBD5E1] shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-white/60 overflow-hidden">
+  <div className="w-10 h-10 rounded-[11px] relative flex items-center justify-center bg-gradient-to-b from-[#F8FAFC] via-[#E2E8F0] to-[#CBD5E1] shadow-[0_5px_12px_rgba(0,0,0,0.3),inset_0_1px_1px_rgba(255,255,255,0.9)] border border-white/60 overflow-hidden">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         <linearGradient id="apple-silver" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -1090,7 +1090,7 @@ export const AboutAbinashIcon: React.FC = () => (
 
 // 22. Skills & Stack: Elegant stack of multi-colored translucent glass sheets floating above each other
 export const SkillsStackIcon: React.FC = () => (
-  <div className="w-12 h-12 relative flex items-center justify-center filter drop-shadow-[0_5px_8px_rgba(0,0,0,0.35)]">
+  <div className="w-10 h-10 relative flex items-center justify-center filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]">
     <svg viewBox="0 0 100 100" className="w-full h-full" fill="none">
       <defs>
         {/* Glass Layer Gradients */}

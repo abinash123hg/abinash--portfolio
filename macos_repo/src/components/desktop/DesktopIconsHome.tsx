@@ -70,7 +70,7 @@ export const DesktopIconsHome: React.FC = () => {
     { id: 'calendar', appId: 'calendar', name: 'Timeline & Events', category: 'portfolio', icon: <TimelineCalendarIcon /> },
     { id: 'ai', appId: 'ai', name: 'Ask Abinash AI', category: 'tools', icon: <AskAbinashAIIcon /> },
     { id: 'favorites', appId: 'favorites', name: 'Cinema Favorites', category: 'portfolio', icon: <CinemaFavoritesIcon /> },
-    { id: 'uploaded-cv', appId: 'cv-pdf', name: 'CV.pdf', category: 'files', icon: <FileText className="h-12 w-12 text-blue-300 drop-shadow-[0_3px_5px_rgba(0,0,0,.45)]" /> },
+    { id: 'uploaded-cv', appId: 'cv-pdf', name: 'CV.pdf', category: 'files', icon: <FileText className="h-10 w-10 text-blue-300 drop-shadow-[0_3px_5px_rgba(0,0,0,.45)]" /> },
     { id: 'experience', appId: 'experience', name: 'Work History', category: 'portfolio', icon: <WorkHistoryIcon /> },
     { id: 'notes', appId: 'notes', name: 'Engineering Notes', category: 'portfolio', icon: <EngineeringNotesIcon /> },
     { id: 'games', appId: 'games', name: 'Game Center', category: 'tools', icon: <GameCenterIcon /> },
@@ -108,9 +108,9 @@ export const DesktopIconsHome: React.FC = () => {
   return (
     <>
       <SquircleDefs />
-      {/* right-12 (~48px) gutter keeps icons clear of viewport edge; gap-y-7 gives selection highlight breathing room */}
+      {/* Right-gutter grid, compact 72px tiles — sized so the tallest column always ends above the dock */}
       <div
-        className="absolute top-10 right-12 z-10 select-none pointer-events-auto grid grid-cols-4 gap-y-7 gap-x-5 p-2 w-max"
+        className="absolute top-9 right-10 z-10 select-none pointer-events-auto grid grid-cols-4 gap-y-4 gap-x-3 p-1.5 w-max max-h-[calc(100vh-150px)] overflow-hidden"
         onClick={() => setSelectedId(null)}
       >
         {desktopIcons.map((item) => {
@@ -124,7 +124,7 @@ export const DesktopIconsHome: React.FC = () => {
                 setSelectedId(item.id);
                 handleLaunch(item);
               }}
-              className={`w-[96px] p-2 rounded-lg flex flex-col items-center gap-2 cursor-pointer transition-all ${
+              className={`w-[72px] p-1.5 rounded-lg flex flex-col items-center gap-1 cursor-pointer transition-all ${
                 isSelected ? 'bg-black/25 backdrop-blur-xs ring-1 ring-white/30' : 'hover:bg-white/10'
               }`}
             >
@@ -135,7 +135,7 @@ export const DesktopIconsHome: React.FC = () => {
 
               {/* Label: allow 2 lines instead of truncating with ellipsis */}
               <span
-                className={`text-[11px] font-medium text-white px-1.5 py-0.5 rounded-sm leading-tight text-center line-clamp-2 max-w-[92px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
+                className={`text-[10px] font-medium text-white px-1 py-0.5 rounded-sm leading-tight text-center line-clamp-2 max-w-[68px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
                   isSelected ? 'bg-[#007aff] text-white shadow-xs font-semibold' : ''
                 }`}
               >
