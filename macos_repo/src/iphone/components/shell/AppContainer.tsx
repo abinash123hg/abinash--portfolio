@@ -121,7 +121,7 @@ export const AppContainer: React.FC = () => {
             damping: 30,
             mass: 0.8
           }}
-          className={`absolute inset-0 z-20 flex flex-col overflow-hidden pb-[var(--home-indicator-h)] ${isDark ? 'bg-black' : 'bg-zinc-100'}`}
+          className={`absolute inset-0 z-20 flex flex-col overflow-hidden pb-[var(--home-indicator-h)] pt-[var(--ios-statusbar-total,3.4rem)] ${isDark ? 'bg-black' : 'bg-zinc-100'}`}
         >
           <PullToRefresh appName={appTitle} disabled={activeApp === 'camera'}>
             {renderActiveApp()}

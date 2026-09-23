@@ -105,7 +105,7 @@ export const HomeScreen: React.FC = () => {
       onTouchEnd={handleTouchEnd}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      className="iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between pb-20 px-3 select-none overflow-hidden"
+      className="ios-wallpaper-text iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between pb-20 px-3 select-none overflow-hidden"
       style={{ paddingTop: '72px' }}
     >
       <h1 className="sr-only">Abinash Swain — AI/ML Portfolio</h1>

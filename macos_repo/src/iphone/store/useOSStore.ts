@@ -555,14 +555,22 @@ export const useOSStore = () => {
     },
     setTheme: (theme: 'dark' | 'light') => {
       sound.tap();
+      try {
+        document.documentElement.classList.toggle('light', theme === 'light');
+        document.documentElement.classList.toggle('dark', theme !== 'light');
+      } catch {}
       setOSState({ theme });
     },
     toggleTheme: () => {
       sound.tap();
-      setOSState((prev) => ({
-        ...prev,
-        theme: prev.theme === 'dark' ? 'light' : 'dark'
-      }));
+      setOSState((prev) => {
+        const next = prev.theme === 'dark' ? 'light' : 'dark';
+        try {
+          document.documentElement.classList.toggle('light', next === 'light');
+          document.documentElement.classList.toggle('dark', next !== 'light');
+        } catch {}
+        return { ...prev, theme: next };
+      });
     },
     // Compatibility aliases
     isPlayingMusic: state.isPlayingMedia,

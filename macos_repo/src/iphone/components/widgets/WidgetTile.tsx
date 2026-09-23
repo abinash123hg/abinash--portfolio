@@ -48,7 +48,7 @@ export const WidgetTile: React.FC<WidgetTileProps> = ({ widget }) => {
 
   return (
     <div
-      className={`relative ${sizeClasses} rounded-[26px] overflow-hidden transition-all duration-300 ${
+      className={`ios-wallpaper-text relative ${sizeClasses} rounded-[26px] overflow-hidden transition-all duration-300 ${
         isDark ? 'ios-glass-dark' : 'liquid-glass-card-light shadow-md'
       } ${isHomeEditing ? 'animate-jiggle select-none' : 'ios-press-active'}`}
       style={{

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Wifi } from 'lucide-react';
 import { DynamicIsland } from './DynamicIsland';
 import { useOSStore } from '../../store/useOSStore';
+import { getWallpaperById } from '../../data/wallpapers';
 
 export const StatusBar: React.FC = () => {
   const {
@@ -12,7 +13,10 @@ export const StatusBar: React.FC = () => {
     airplaneMode,
     batteryLevel,
     isCharging,
-    isOnline
+    isOnline,
+    theme,
+    activeApp,
+    wallpaperId
   } = useOSStore();
   const [time, setTime] = useState<string>('9:41');
 
@@ -30,9 +34,19 @@ export const StatusBar: React.FC = () => {
 
   const level = batteryLevel ?? 83;
 
+  // In light theme the status bar text follows the surface behind it:
+  // an open app paints its own (light) background up to the top edge,
+  // so the clock flips dark there; on Home/Lock the wallpaper shows
+  // through and white text (matching the wallpaper's textColor) is kept.
+  const isDark = theme === 'dark';
+  const wallpaper = getWallpaperById(wallpaperId);
+  const darkTextInLightTheme = !isDark && (activeApp ? true : wallpaper.textColor === 'dark');
+
   return (
     <div
-      className="iphone-status-bar absolute top-0 left-0 right-0 z-[120] w-full pt-[max(0.5rem,env(safe-area-inset-top))] pb-1 px-5 flex items-center justify-between select-none text-white bg-transparent"
+      className={`iphone-status-bar absolute top-0 left-0 right-0 z-[120] w-full pt-[max(0.5rem,env(safe-area-inset-top))] pb-1 px-5 flex items-center justify-between select-none text-white bg-transparent ${
+        darkTextInLightTheme ? 'ios-statusbar-on-light' : ''
+      }`}
       style={{ pointerEvents: 'none' }}
     >
       {/* Notification Center — time (left) */}

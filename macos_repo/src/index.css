@@ -2497,3 +2497,162 @@ html.dark .iphone-shell .ios-app-window__header { background:rgba(28,28,30,.88);
 .wallpaper-golden-hour {
   background: linear-gradient(155deg, #fef3c7 0%, #fed7aa 35%, #fbcfe8 75%, #f1f5f9 100%);
 }
+
+/* ============================================================
+   iPhone Day-Theme Readability Layer
+   The iPhone apps are authored dark-first. In Day (light) theme
+   dark glass surfaces become invisible and white text disappears.
+   These rules remap the dark-first utility classes to light-mode
+   equivalents, scoped to the iPhone shell only.
+   ============================================================ */
+
+/* --- Task 1 fix: app content must clear the floating status bar --- */
+.iphone-shell .ios-app-layer,
+.iphone-shell .ios-app-container {
+  padding-top: calc(2.75rem + env(safe-area-inset-top, 0px));
+}
+.iphone-shell .ios-app-layer > * {
+  padding-top: calc(2.75rem + env(safe-area-inset-top, 0px));
+  box-sizing: border-box;
+}
+
+/* --- Status bar contrast in Day theme ---
+   Over light app chrome the clock/battery must flip to dark text.
+   The generic CSS layer below forces white, so raise specificity here. */
+html.light .iphone-shell .iphone-status-bar.ios-statusbar-on-light,
+html.light .iphone-shell .iphone-status-bar.ios-statusbar-on-light button,
+html.light .iphone-shell .iphone-status-bar.ios-statusbar-on-light svg {
+  color: #1c1c1e !important;
+  text-shadow: none !important;
+}
+
+/* --- Card / surface remapping --- */
+html.light .iphone-shell .bg-zinc-900\/80,
+html.light .iphone-shell .bg-zinc-900\/70,
+html.light .iphone-shell .bg-zinc-900\/60,
+html.light .iphone-shell .bg-zinc-900\/50,
+html.light .iphone-shell .bg-zinc-900\/40 {
+  background-color: rgba(255, 255, 255, 0.88) !important;
+}
+html.light .iphone-shell .bg-zinc-900\/95,
+html.light .iphone-shell .bg-zinc-900\/90 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+}
+html.light .iphone-shell .bg-zinc-800\/90,
+html.light .iphone-shell .bg-zinc-800\/80,
+html.light .iphone-shell .bg-zinc-800\/70,
+html.light .iphone-shell .bg-zinc-800\/60,
+html.light .iphone-shell .bg-zinc-800\/50,
+html.light .iphone-shell .bg-zinc-800\/40 {
+  background-color: rgba(242, 242, 247, 0.95) !important;
+}
+html.light .iphone-shell .bg-black\/20,
+html.light .iphone-shell .bg-black\/30,
+html.light .iphone-shell .bg-black\/40 {
+  background-color: rgba(120, 120, 128, 0.12) !important;
+}
+
+/* --- Border remapping --- */
+html.light .iphone-shell .border-white\/10,
+html.light .iphone-shell .border-white\/15,
+html.light .iphone-shell .border-white\/20,
+html.light .iphone-shell .border-white\/25 {
+  border-color: rgba(60, 60, 67, 0.18) !important;
+}
+
+/* --- Text remapping (light-on-dark -> dark-on-light) --- */
+html.light .iphone-shell .text-white {
+  color: #1c1c1e !important;
+}
+html.light .iphone-shell .text-zinc-300,
+html.light .iphone-shell .text-zinc-400 {
+  color: #3f3f46 !important;
+}
+html.light .iphone-shell .text-zinc-500 {
+  color: #52525b !important;
+}
+
+/* Colored accents stay colorful on light background */
+html.light .iphone-shell .text-emerald-300,
+html.light .iphone-shell .text-emerald-400 {
+  color: #058a5e !important;
+}
+html.light .iphone-shell .text-amber-300,
+html.light .iphone-shell .text-amber-400 {
+  color: #92500a !important;
+}
+html.light .iphone-shell .text-cyan-300,
+html.light .iphone-shell .text-cyan-400 {
+  color: #04606e !important;
+}
+html.light .iphone-shell .text-orange-300,
+html.light .iphone-shell .text-orange-400 {
+  color: #8a3b00 !important;
+}
+html.light .iphone-shell .text-rose-300,
+html.light .iphone-shell .text-rose-400 {
+  color: #a8071a !important;
+}
+
+/* --- White pills / chips on light background --- */
+html.light .iphone-shell .bg-white\/10,
+html.light .iphone-shell .bg-white\/15,
+html.light .iphone-shell .bg-white\/20 {
+  background-color: rgba(120, 120, 128, 0.14) !important;
+}
+
+/* --- Solid dark chips that would vanish on light background --- */
+html.light .iphone-shell .bg-zinc-800:not([class*="\/"]) {
+  background-color: rgba(118, 118, 128, 0.16) !important;
+}
+html.light .iphone-shell .bg-zinc-700 {
+  background-color: rgba(118, 118, 128, 0.22) !important;
+}
+
+/* --- Inputs --- */
+html.light .iphone-shell input.bg-zinc-800\/90,
+html.light .iphone-shell textarea.bg-zinc-800\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #1c1c1e !important;
+}
+
+/* --- Scrollbar contrast --- */
+html.light .iphone-shell ::-webkit-scrollbar-thumb {
+  background: rgba(60, 60, 67, 0.3);
+}
+
+/* ============================================================
+   Keep-dark zones: immersive surfaces that stay dark in Day
+   theme because their design is intrinsically dark.
+   ============================================================ */
+
+/* Camera is a full-screen dark experience */
+html.light .iphone-shell .ios-keep-dark,
+html.light .iphone-shell .ios-keep-dark .text-white {
+  color: #ffffff !important;
+}
+html.light .iphone-shell .ios-keep-dark .bg-zinc-900\/80,
+html.light .iphone-shell .ios-keep-dark .bg-zinc-900\/70,
+html.light .iphone-shell .ios-keep-dark .bg-zinc-900\/60 {
+  background-color: rgba(28, 28, 30, 0.72) !important;
+}
+html.light .iphone-shell .ios-keep-dark .border-white\/10,
+html.light .iphone-shell .ios-keep-dark .border-white\/15,
+html.light .iphone-shell .ios-keep-dark .border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+html.light .iphone-shell .ios-keep-dark .text-zinc-300,
+html.light .iphone-shell .ios-keep-dark .text-zinc-400 {
+  color: #d4d4d8 !important;
+}
+
+/* Full-screen media viewers stay dark regardless of theme */
+html.light .iphone-shell .ios-keep-dark.ios-fullscreen-viewer {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* Home-screen wallpaper surfaces keep white text (wallpaper is dark/dynamic) */
+html.light .iphone-shell .ios-wallpaper-text,
+html.light .iphone-shell .ios-wallpaper-text .text-white {
+  color: #ffffff !important;
+}
