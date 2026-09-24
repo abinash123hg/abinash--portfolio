@@ -124,7 +124,7 @@ export const DesktopIconsHome: React.FC = () => {
                 setSelectedId(item.id);
                 handleLaunch(item);
               }}
-              className={`w-[72px] p-1.5 rounded-lg flex flex-col items-center gap-1 cursor-pointer transition-all ${
+              className={`w-[72px] p-2 rounded-lg flex flex-col items-center gap-0 cursor-pointer transition-all ${
                 isSelected ? 'bg-black/25 backdrop-blur-xs ring-1 ring-white/30' : 'hover:bg-white/10'
               }`}
             >
@@ -135,7 +135,7 @@ export const DesktopIconsHome: React.FC = () => {
 
               {/* Label: allow 2 lines instead of truncating with ellipsis */}
               <span
-                className={`text-[10px] font-medium text-white px-1 py-0.5 rounded-sm leading-tight text-center line-clamp-2 max-w-[68px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
+                className={`text-[10px] font-medium text-white px-1 py-0.5 rounded-sm leading-tight text-center line-clamp-1 max-w-[82px] filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] ${
                   isSelected ? 'bg-[#007aff] text-white shadow-xs font-semibold' : ''
                 }`}
               >
