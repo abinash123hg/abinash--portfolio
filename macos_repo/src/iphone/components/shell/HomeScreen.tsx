@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { APPS_REGISTRY } from '../../data/appsRegistry';
@@ -91,7 +91,7 @@ export const HomeScreen: React.FC = () => {
 
   const nameStyle: React.CSSProperties = {
     color: '#ffffff',
-    textShadow: '0 1px 3px rgba(0,0,0,0.85)'
+    textShadow: '0 1px 2px rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.55)'
   };
 
   return (
@@ -160,15 +160,13 @@ export const HomeScreen: React.FC = () => {
                   openApp(app.id);
                 }
               }}
-              className={`flex flex-col items-center gap-1 cursor-pointer group relative ${
-                isHomeEditing ? 'animate-jiggle' : ''
-              }`}
+              className={`flex flex-col items-center gap-1 cursor-pointer group relative ${isHomeEditing ? 'animate-jiggle' : ''}`}
             >
               <div className="relative">
                 <div
-                  className={`w-[58px] h-[58px] rounded-[16px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all border border-white/20`}
+                  className={`w-[64px] h-[64px] rounded-[20px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all border border-white/20`}
                 >
-                  <AppIconGlyph name={app.iconName} className="w-7 h-7 text-white drop-shadow-sm" />
+                  <AppIconGlyph name={app.iconName} className="w-[26px] h-[26px] text-white drop-shadow-sm" />
                 </div>
                 {!isHomeEditing && app.badge && (
                   <span className="absolute -top-1 -right-1 px-1.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-rose-500 text-white text-[10px] font-bold shadow-md border border-white">
@@ -176,7 +174,7 @@ export const HomeScreen: React.FC = () => {
                   </span>
                 )}
               </div>
-              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+              <span className="text-[13px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
                 {app.name}
               </span>
             </motion.div>
@@ -190,17 +188,15 @@ export const HomeScreen: React.FC = () => {
                   setActiveFolderId('folder-devtools');
                 }
               }}
-              className={`flex flex-col items-center gap-1 cursor-pointer group ${
-                isHomeEditing ? 'animate-jiggle' : ''
-              }`}
+              className={`flex flex-col items-center gap-1 cursor-pointer group ${isHomeEditing ? 'animate-jiggle' : ''}`}
             >
-              <div className={`w-[58px] h-[58px] rounded-[16px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
+              <div className={`w-[64px] h-[64px] rounded-[20px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
                 <div className="w-4 h-4 rounded-xs bg-sky-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-emerald-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-purple-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-amber-500/80" />
               </div>
-              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+              <span className="text-[13px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
                 Dev Tools
               </span>
             </motion.div>
@@ -214,17 +210,15 @@ export const HomeScreen: React.FC = () => {
                   setActiveFolderId('folder-media');
                 }
               }}
-              className={`flex flex-col items-center gap-1 cursor-pointer group ${
-                isHomeEditing ? 'animate-jiggle' : ''
-              }`}
+              className={`flex flex-col items-center gap-1 cursor-pointer group ${isHomeEditing ? 'animate-jiggle' : ''}`}
             >
-              <div className={`w-[58px] h-[58px] rounded-[16px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
+              <div className={`w-[64px] h-[64px] rounded-[20px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
                 <div className="w-4 h-4 rounded-xs bg-rose-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-indigo-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-teal-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-pink-500/80" />
               </div>
-              <span className="text-[11px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
+              <span className="text-[13px] font-semibold tracking-tight truncate max-w-[66px] text-center" style={nameStyle}>
                 Media
               </span>
             </motion.div>
@@ -236,22 +230,18 @@ export const HomeScreen: React.FC = () => {
         {homePageIndex > 0 && (
           <button
             onClick={() => setHomePageIndex(homePageIndex - 1)}
-            className={isDark ? 'text-white/75 hover:text-white transition-colors' : 'text-zinc-800 hover:text-black transition-colors'}
+            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all active:scale-90 ${isDark ? 'bg-white/10 text-white/85 hover:bg-white/20' : 'bg-black/10 text-zinc-800 hover:bg-black/20'}`}
             title="Previous Page"
           >
-            <ChevronLeft className="w-3.5 h-3.5" />
+            <ChevronLeft className="w-4 h-4" />
           </button>
         )}
-        <div className={`flex items-center gap-1.5 backdrop-blur-md px-2.5 py-1 rounded-full border ${isDark ? 'bg-black/25 border-white/10' : 'bg-white/45 border-black/10'}`}>
+        <div className={`flex items-center gap-1.5 backdrop-blur-md px-2.5 py-2 rounded-full border ${isDark ? 'bg-black/25 border-white/10' : 'bg-white/45 border-black/10'}`}>
           {[0, 1, 2].map((idx) => (
             <button
               key={idx}
               onClick={() => setHomePageIndex(idx)}
-              className={`min-h-[10px] min-w-[10px] h-2.5 rounded-full transition-all duration-200 ${
-                homePageIndex === idx
-                  ? isDark ? 'w-5 bg-white' : 'w-5 bg-zinc-900'
-                  : isDark ? 'w-2.5 bg-white/55 hover:bg-white/85' : 'w-2.5 bg-zinc-900/55 hover:bg-zinc-900/80'
-              }`}
+              className={`min-h-[10px] min-w-[10px] h-3 rounded-full transition-all duration-200 ${homePageIndex === idx ? (isDark ? 'w-5 bg-white' : 'w-5 bg-zinc-900') : isDark ? 'w-2.5 bg-white/55 hover:bg-white/85' : 'w-2.5 bg-zinc-900/55 hover:bg-zinc-900/80'}`}
               title={`Go to page ${idx + 1}`}
             />
           ))}
@@ -259,10 +249,10 @@ export const HomeScreen: React.FC = () => {
         {homePageIndex < 2 && (
           <button
             onClick={() => setHomePageIndex(homePageIndex + 1)}
-            className={isDark ? 'text-white/75 hover:text-white transition-colors' : 'text-zinc-800 hover:text-black transition-colors'}
+            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all active:scale-90 ${isDark ? 'bg-white/10 text-white/85 hover:bg-white/20' : 'bg-black/10 text-zinc-800 hover:bg-black/20'}`}
             title="Next Page"
           >
-            <ChevronRight className="w-3.5 h-3.5" />
+            <ChevronRight className="w-4 h-4" />
           </button>
         )}
       </div>
@@ -271,15 +261,15 @@ export const HomeScreen: React.FC = () => {
       <div className="mb-3.5 flex justify-center">
         <button
           onClick={toggleSpotlight}
-          className={`flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full text-sm backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/85 hover:bg-white border-black/15 text-zinc-900'}`}
+          className={`flex items-center gap-2 px-4 py-3 min-h-[44px] rounded-full text-base backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/90 hover:bg-white border-black/15 text-zinc-900'}`}
         >
-          <Search className={`w-4 h-4 ${isDark ? 'text-zinc-300' : 'text-zinc-600'}`} aria-hidden="true" />
-          <span className="font-semibold text-sm">Search</span>
+          <Search className={`w-5 h-5 shrink-0 ${isDark ? 'text-zinc-300' : 'text-zinc-500'}`} aria-hidden="true" />
+          <span className="font-semibold tracking-tight text-base">Search</span>
         </button>
       </div>
 
       <div className="absolute bottom-2 left-0 right-0 z-30 px-3">
-        <div className={`p-2.5 rounded-[34px] mx-auto max-w-[340px] flex items-center justify-around border shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${isDark ? 'bg-zinc-900/45 border-white/25' : 'bg-white/85 border-black/15'}`}>
+        <div className={`p-2.5 rounded-[34px] mx-auto max-w-[340px] flex items-center justify-around border shadow-[0_15px_35px_rgba(0,0,0,0.5)] ${isDark ? 'bg-zinc-900/45 border-white/25' : 'bg-white/90 border-black/15'}`}>
           {dockApps.map((app) => (
             <motion.div
               key={app.id}
@@ -293,7 +283,7 @@ export const HomeScreen: React.FC = () => {
             >
               <div className="relative">
                 <div
-                  className={`w-[54px] h-[54px] rounded-[15px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-all border border-white/20`}
+                  className={`w-[56px] h-[56px] rounded-[20px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-all border border-white/20`}
                 >
                   <AppIconGlyph name={app.iconName} className="w-6 h-6 text-white drop-shadow-sm" />
                 </div>
@@ -310,4 +300,3 @@ export const HomeScreen: React.FC = () => {
     </div>
   );
 };
-
