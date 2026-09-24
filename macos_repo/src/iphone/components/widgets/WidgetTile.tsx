@@ -37,14 +37,8 @@ export const WidgetTile: React.FC<WidgetTileProps> = ({ widget }) => {
       default:
         return <ClockWidget size={widget.size} />;
     }
-  };
+  };  const sizeClasses =    widget.size === 'small'      ? 'col-span-2 aspect-square'      : widget.size === 'medium'      ? 'col-span-2 h-20'      : 'col-span-2 h-36';
 
-  const sizeClasses =
-    widget.size === 'small'
-      ? 'col-span-2 aspect-square'
-      : widget.size === 'medium'
-      ? 'col-span-4 h-[152px]'
-      : 'col-span-4 h-[314px]';
 
   return (
     <div

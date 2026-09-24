@@ -141,16 +141,9 @@ export const HomeScreen: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col justify-start">
-        {currentWidgets.length > 0 && (
-          <div className="grid grid-cols-4 gap-x-1 gap-y-1 mb-3.5 px-0.5">
-            {currentWidgets.map((w) => (
-              <WidgetTile key={w.instanceId} widget={w} />
-            ))}
-          </div>
-        )}
+      <div className="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col justify-start">        {currentWidgets.length > 0 && (          <div className="grid grid-cols-2 gap-x-1 gap-y-2 mb-2.5 px-0.5">            {currentWidgets.map((w) => (              <WidgetTile key={w.instanceId} widget={w} />            ))}          </div>        )}
 
-        {/* App grid: 3 stacked rows of 2 apps each so no overlap with the widget row in a 4-col grid */}
+        {/* Corrected app grid: 3 stacked rows of 2 apps per homescreen */}
         <div className="grid grid-cols-2 gap-1.5 px-1">
           {currentApps.map((app) => (
             <motion.div
