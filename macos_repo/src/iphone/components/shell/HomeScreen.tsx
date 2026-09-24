@@ -150,7 +150,8 @@ export const HomeScreen: React.FC = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-4 gap-y-4 gap-x-2 px-1 justify-items-center">
+        {/* App grid: 3 stacked rows of 2 apps each so no overlap with the widget row in a 4-col grid */}
+        <div className="grid grid-cols-2 gap-1.5 px-1">
           {currentApps.map((app) => (
             <motion.div
               key={app.id}
