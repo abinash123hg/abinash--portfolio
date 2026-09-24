@@ -1,0 +1,49 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+#Required: set these secrets in your GitHub repo (Settings > Secrets and variables > Actions)
+#  NETLIFY_SITE_ID        - Site ID for abinash-swain
+#  NETLIFY_AUTH_TOKEN     - Netlify API token with deploy write permission
+
+env:
+  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: List dist artifacts
+        run: ls -la dist/ dist/assets/ 2>/dev/null || true
+
+      - name: Deploy to Netlify
+        if: env.NETLIFY_SITE_ID != '' && env.NETLIFY_AUTH_TOKEN != ''
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data '{"branch": "main"}' \
+            https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+      - name: Fallback - npm run build only (no deploy)
+        if: env.NETLIFY_SITE_ID == '' || env.NETLIFY_AUTH_TOKEN == ''
+        run: echo "Skip Netlify deploy: set NETLIFY_SITE_ID and NETLIFY_AUTH_TOKEN secrets."
