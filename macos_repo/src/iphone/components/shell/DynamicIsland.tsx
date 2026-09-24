@@ -31,10 +31,10 @@ export const DynamicIsland: React.FC = () => {
         }}
         className={`bg-black text-white cursor-pointer shadow-2xl transition-all duration-300 flex items-center justify-between overflow-hidden border border-zinc-800/80 ${
           isDynamicIslandExpanded
-            ? 'w-[168px] min-h-[64px] rounded-[26px] p-2.5'
+            ? 'w-[148px] min-h-[52px] rounded-[20px] p-2'
             : dynamicIslandMode !== 'idle'
-            ? 'w-[160px] h-[32px] rounded-full px-2.5'
-            : 'w-[124px] h-[32px] rounded-full px-2.5'
+            ? 'w-[140px] h-[28px] rounded-full px-2'
+            : 'w-[112px] h-[26px] rounded-full px-1.5'
         }`}
         animate={{
           scale: 1,

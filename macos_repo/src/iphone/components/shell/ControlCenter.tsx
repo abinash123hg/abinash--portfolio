@@ -53,7 +53,7 @@ export const ControlCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 30, stiffness: 320 }}
-        className={`ios-control-center absolute inset-0 z-[60] backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden ${isDark ? 'bg-black/55' : 'cc-light bg-white/65'}`}
+        className={`ios-control-center absolute inset-0 z-[60] backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden ${isDark ? 'bg-black/40' : 'cc-light bg-white/65'}`}
         onClick={() => {
           if (activeSheet) {
             setActiveSheet(null);
