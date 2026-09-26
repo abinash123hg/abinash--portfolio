@@ -53,7 +53,7 @@ export const ControlCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 30, stiffness: 320 }}
-        className={`ios-control-center absolute inset-0 z-[60] backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden ${isDark ? 'bg-black/40' : 'cc-light bg-white/65'}`}
+        className={`ios-control-center ios-control-center--ios18 absolute inset-0 z-[60] flex flex-col justify-start select-none overflow-hidden ${isDark ? 'ios-control-center--dark' : 'ios-control-center--light'}`}
         onClick={() => {
           if (activeSheet) {
             setActiveSheet(null);
@@ -123,26 +123,6 @@ export const ControlCenter: React.FC = () => {
           >
             <X className="w-4 h-4" />
           </button>
-        </div>
-
-        {/* Vertical iOS 18 Page Indicator Bar (Right Edge) */}
-        <div
-          className={`absolute right-2.5 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2 p-1.5 rounded-full backdrop-blur-md ${isDark ? 'bg-black/40 border-white/10' : 'bg-white/70 border-black/10'}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {PAGES.map((page) => {
-            const isSelected = controlCenterPage === page.id;
-            return (
-              <button
-                key={page.id}
-                onClick={() => setControlCenterPage(page.id)}
-                className={`w-2 rounded-full transition-all duration-300 ${
-                  isSelected ? (isDark ? 'h-6 bg-white shadow-sm' : 'h-6 bg-zinc-900 shadow-sm') : (isDark ? 'h-2 bg-white/30 hover:bg-white/50' : 'h-2 bg-zinc-900/30 hover:bg-zinc-900/50')
-                }`}
-                title={page.label}
-              />
-            );
-          })}
         </div>
 
         {/* Scrollable Page Container */}

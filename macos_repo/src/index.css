@@ -93,6 +93,20 @@ html:has(.portfolio-landing--day) {
 @keyframes error-orbit { to { transform:rotate(360deg); } }
 @media (prefers-reduced-motion:reduce) { .portfolio-error-orbit { animation:none; } }
 
+/* iOS glass system overlays: compact, legible, and sized to the full phone viewport. */
+.ios-control-center,
+.ios-notification-center { isolation: isolate; min-height: 100%; contain: layout paint; -webkit-backdrop-filter: blur(18px) saturate(125%); backdrop-filter: blur(18px) saturate(125%); transform: translateZ(0); }
+.ios-control-center--dark { background: rgba(10,12,18,.58); color: #fff; }
+.ios-control-center--light { background: rgba(239,242,248,.78); color: #101318; }
+.ios-notification-center--dark { background: rgba(14,16,22,.7); }
+.ios-notification-center--light { background: rgba(235,239,247,.8); }
+.ios-control-center--dark::before, .ios-control-center--light::before, .ios-notification-center--dark::before, .ios-notification-center--light::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.18),transparent 32%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.16),transparent 35%); }
+.ios-control-center--light::before, .ios-notification-center--light::before { background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.75),transparent 34%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.18),transparent 38%); }
+.ios-notification-center .no-scrollbar, .ios-control-center .no-scrollbar { overscroll-behavior: contain; scrollbar-width: none; }
+.ios-notification-center .no-scrollbar::-webkit-scrollbar, .ios-control-center .no-scrollbar::-webkit-scrollbar { display: none; }
+@media (max-width:639px) { .ios-control-center > .flex-1 { padding-inline:.75rem; } .ios-control-center > div:first-child { padding-top:calc(2.75rem + env(safe-area-inset-top)); } .ios-notification-center > div:first-child { padding-top:calc(2.25rem + env(safe-area-inset-top)); } }
+@media (prefers-reduced-motion:reduce) { .ios-control-center *, .ios-notification-center * { transition-duration:.01ms !important; animation-duration:.01ms !important; } }
+
 @layer base {
   * {
     scrollbar-width: thin;
@@ -217,6 +231,8 @@ html:has(.portfolio-landing--day) {
 /* ========== Personal Portfolio Landing - Clean Visual System ========== */
 .portfolio-landing {
   position: relative;
+  contain: layout style;
+  overscroll-behavior-y: contain;
   min-height: 100dvh;
   max-height: 100dvh;
   color: #eefbff;
@@ -2107,7 +2123,7 @@ html:has(.portfolio-landing--day) {
 @media (max-width:390px) { .iphone-home-screen { padding-inline:.7rem; }.iphone-home-screen .ios-home-widget { min-height:5rem; }.iphone-home-screen .ios-app-icon__surface { transform:scale(.94); }.iphone-home-screen .ios-home-dock { min-height:4.7rem; } }
 
 /* Reference-accurate iPhone portrait home screen: four compact columns, two-column widgets. */
-.iphone-home-screen .ios-home-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: .15rem; row-gap: .7rem; }
+.iphone-home-screen .ios-home-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: .15rem; row-gap: .38rem; padding-bottom: .25rem; }
 .iphone-home-screen .ios-home-grid > div { min-width: 0; }
 .iphone-home-screen .ios-home-widget { min-height: 5.2rem; }
 @media (max-width: 390px) {
@@ -2240,8 +2256,21 @@ html.dark .iphone-shell .ios-app-window__header { background:rgba(28,28,30,.88);
 .iphone-shell .ios-notification-center > div:first-child { padding-top:.25rem; border-bottom-color:rgba(255,255,255,.14); }
 .iphone-shell .ios-notification-center [class*="rounded-2xl"] { border-color:rgba(255,255,255,.14); background:rgba(40,42,50,.72); backdrop-filter:blur(18px) saturate(125%); -webkit-backdrop-filter:blur(18px) saturate(125%); }
 .iphone-shell .ios-notification-center [class*="rounded-2xl"]:active { transform:scale(.985); }
-.iphone-shell .ios-control-center { background:linear-gradient(145deg,#26354d 0%,#18243a 48%,#101a2b 100%); backdrop-filter:none; -webkit-backdrop-filter:none; }
-.iphone-shell .ios-control-center > div > div { background:rgba(255,255,255,.1); backdrop-filter:blur(22px) saturate(115%); -webkit-backdrop-filter:blur(22px) saturate(115%); }
+.iphone-shell .ios-control-center { background:linear-gradient(145deg,rgba(28,45,68,.9),rgba(11,20,34,.94)); backdrop-filter:blur(26px) saturate(145%); -webkit-backdrop-filter:blur(26px) saturate(145%); }
+  .iphone-shell .ios-control-center--ios18 { padding:0 !important; }
+  .iphone-shell .ios-control-center--ios18::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,rgba(255,255,255,.08),transparent 28%,rgba(0,0,0,.12)); }
+  .iphone-shell .ios-control-center--ios18 > div:first-child { position:relative; z-index:2; padding-top:calc(3.35rem + env(safe-area-inset-top,0px)); padding-inline:1.25rem; padding-bottom:.65rem; }
+  .iphone-shell .ios-control-center--ios18 > div:nth-child(2) { position:relative; z-index:2; width:100%; max-width:none; padding:0 1rem calc(3.25rem + env(safe-area-inset-bottom,0px)); gap:.75rem; }
+  .iphone-shell .ios-control-center--ios18 > div:nth-child(2) > div { width:100%; max-width:23rem; }
+  .iphone-shell .ios-control-center--ios18 .grid { gap:.65rem; }
+  .iphone-shell .ios-control-center--ios18 .rounded-\[28px\] { border-radius:1.65rem; background:rgba(39,43,52,.72); border-color:rgba(255,255,255,.16); box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 18px 40px rgba(0,0,0,.2); }
+  .iphone-shell .ios-control-center--ios18 .rounded-\[24px\] { border-radius:1.45rem; }
+  .iphone-shell .ios-control-center--ios18 .rounded-full { box-shadow:inset 0 1px 0 rgba(255,255,255,.12); }
+  .iphone-shell .ios-control-center--ios18 .absolute.-top-1\.5.-left-1\.5 { display:none; }
+  .iphone-shell .ios-control-center--ios18 .control-center-slider { width:4.5rem; min-height:10rem; }
+  .iphone-shell .ios-control-center--ios18 .ios-control-center-page-dots { display:none; }
+  .iphone-shell .ios-control-center--ios18 button { -webkit-tap-highlight-color:transparent; }
+  .iphone-shell .ios-control-center > div > div { background:rgba(255,255,255,.1); backdrop-filter:blur(22px) saturate(115%); -webkit-backdrop-filter:blur(22px) saturate(115%); }
 .iphone-shell .ios-control-center .control-center-slider { writing-mode:vertical-lr; direction:rtl; appearance:none; background:rgba(255,255,255,.18); border-radius:999px; }
 .iphone-shell .ios-control-center .control-center-slider::-webkit-slider-thumb { appearance:none; width:1.1rem; height:1.1rem; border-radius:50%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.22); }
 .iphone-shell .ios-control-center .control-center-slider::-moz-range-thumb { width:1.1rem; height:1.1rem; border:0; border-radius:50%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.22); }
