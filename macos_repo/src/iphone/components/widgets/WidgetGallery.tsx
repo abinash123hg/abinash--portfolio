@@ -77,7 +77,7 @@ export const WidgetGallery: React.FC = () => {
           </div>
           <button
             onClick={() => toggleWidgetGallery(false)}
-            className="w-8 h-8 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-zinc-700 transition-colors"
+            className="w-7 h-7 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center hover:bg-zinc-700 transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -85,13 +85,13 @@ export const WidgetGallery: React.FC = () => {
 
         {/* Search Bar */}
         <div className="relative my-3">
-          <Search className="absolute left-3 top-2.5 w-4 h-4 text-zinc-400" />
+          <Search className="absolute left-3 top-2.5 w-3.5 h-3.5 text-zinc-300" />
           <input
             type="text"
             placeholder="Search Widgets"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-zinc-800/80 text-white placeholder-zinc-500 rounded-xl pl-9 pr-4 py-2 text-xs focus:outline-hidden focus:ring-1 focus:ring-sky-500 border border-white/5"
+            className="w-full h-9 bg-zinc-800/90 text-white placeholder-zinc-400 rounded-lg pl-9 pr-3 py-1.5 text-[11px] leading-4 focus:outline-hidden focus:ring-1 focus:ring-sky-500 border border-white/10"
           />
         </div>
 
