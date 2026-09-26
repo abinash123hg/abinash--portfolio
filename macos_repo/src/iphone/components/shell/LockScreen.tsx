@@ -37,6 +37,7 @@ export const LockScreen: React.FC = () => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, y: -400, transition: { duration: 0.35, ease: [0.32, 0.72, 0, 1] } }}
       className={`ios-wallpaper-text absolute inset-0 z-40 flex flex-col justify-between p-6 pt-14 pb-8 ${lockWallpaper.className} ${theme === 'light' ? 'ios-lock-light text-zinc-900' : 'text-white'} select-none overflow-hidden`}
+      style={{ background: lockWallpaper.thumbnailStyle }}
     >
       {/* Background Ambient Tint */}
       <div className="absolute inset-0 bg-black/35 backdrop-blur-[2px] pointer-events-none" />

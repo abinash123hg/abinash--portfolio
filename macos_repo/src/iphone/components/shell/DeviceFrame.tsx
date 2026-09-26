@@ -47,9 +47,11 @@ export const DeviceFrame: React.FC<DeviceFrameProps> = ({ children }) => {
           style={{ filter: `brightness(${brightness}%)` }}
         >
           <div
+            aria-hidden="true"
             className={`absolute inset-0 pointer-events-none transition-all duration-700 ${wallpaper.className} ${
               perspectiveZoom ? 'scale-105' : 'scale-100'
             }`}
+            style={{ background: wallpaper.thumbnailStyle }}
           />
 
           {/* Home / app content — below status bar */}

@@ -125,6 +125,16 @@ const getStoredTiles = (): string[] => {
   return DEFAULT_CC_TILES;
 };
 
+const getStoredWallpaperId = (key: string, fallback: string): string => {
+  if (typeof window === 'undefined') return fallback;
+  try {
+    const saved = localStorage.getItem(key);
+    return saved && WALLPAPERS.some((wallpaper) => wallpaper.id === saved) ? saved : fallback;
+  } catch {
+    return fallback;
+  }
+};
+
 const DEFAULT_STATE: OSState = {
   isLocked: false,
   activeApp: null,
@@ -181,8 +191,8 @@ const DEFAULT_STATE: OSState = {
   controlCenterTiles: getStoredTiles(),
   activeToast: null,
   notifications: SEED_NOTIFICATIONS,
-  wallpaperId: 'dynamic-aurora',
-  lockWallpaperId: 'dynamic-aurora',
+  wallpaperId: getStoredWallpaperId('ios_wallpaper_id', 'dynamic-aurora'),
+  lockWallpaperId: getStoredWallpaperId('ios_lock_wallpaper_id', 'dynamic-aurora'),
   perspectiveZoom: true,
   homePageIndex: 0,
   isHomeEditing: false,
