@@ -8,7 +8,12 @@ interface RecentProjectsWidgetProps {
 }
 
 export const RecentProjectsWidget: React.FC<RecentProjectsWidgetProps> = ({ size }) => {
-  const { setActiveApp, selectProject } = useOSStore();
+  const { setActiveApp, selectProject, theme } = useOSStore();
+  const isDark = theme === 'dark';
+  const primary = isDark ? 'text-white' : 'text-zinc-900';
+  const muted = isDark ? 'text-zinc-400' : 'text-zinc-600';
+  const rowSurface = isDark ? 'bg-white/5 hover:bg-white/10 border-white/5' : 'bg-black/[0.04] hover:bg-black/[0.08] border-black/[0.08]';
+  const badgeSurface = isDark ? 'bg-white/10 text-zinc-300' : 'bg-black/[0.06] text-zinc-700';
 
   const projects = [
     {
@@ -39,7 +44,7 @@ export const RecentProjectsWidget: React.FC<RecentProjectsWidgetProps> = ({ size
   return (
     <div className="w-full h-full p-4 flex flex-col justify-between select-none">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1.5 text-xs font-bold text-white">
+        <div className={`flex items-center gap-1.5 text-xs font-bold ${primary}`}>
           <FolderGit2 className="w-4 h-4 text-sky-400" />
           <span>Recent Projects</span>
         </div>
@@ -56,23 +61,23 @@ export const RecentProjectsWidget: React.FC<RecentProjectsWidgetProps> = ({ size
           <div
             key={proj.id}
             onClick={() => handleOpen(proj.id)}
-            className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer border border-white/5 group"
+            className={`flex items-center justify-between p-2 rounded-xl transition-colors cursor-pointer border group ${rowSurface}`}
           >
             <div>
-              <div className="text-[11px] font-bold text-white flex items-center gap-1">
+              <div className={`text-[11px] font-bold ${primary} flex items-center gap-1`}>
                 <span>{proj.name}</span>
                 <ArrowUpRight className="w-3 h-3 text-zinc-400 group-hover:text-sky-400 transition-colors" />
               </div>
-              <div className="text-[9px] text-zinc-400 truncate max-w-[170px]">{proj.desc}</div>
+              <div className={`text-[9px] ${muted} truncate max-w-[170px]`}>{proj.desc}</div>
             </div>
-            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-md bg-white/10 text-zinc-300">
+            <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded-md ${badgeSurface}`}>
               {proj.badge}
             </span>
           </div>
         ))}
       </div>
 
-      <div className="text-[9px] text-zinc-400 text-center">
+      <div className={`text-[9px] ${muted} text-center`}>
         Tap to open live project benchmarks & source code
       </div>
     </div>
