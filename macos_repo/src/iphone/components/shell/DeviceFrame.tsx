@@ -23,8 +23,31 @@ export const DeviceFrame: React.FC<DeviceFrameProps> = ({ children }) => {
     brightness,
     activeApp,
     wallpaperId,
-    perspectiveZoom
+    perspectiveZoom,
+    toggleControlCenter,
+    toggleNotificationCenter
   } = useOSStore();
+
+  const swipeStart = React.useRef<{ x: number; y: number } | null>(null);
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    swipeStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const start = swipeStart.current;
+    swipeStart.current = null;
+    if (!start) return;
+    const touch = event.changedTouches[0];
+    const deltaY = touch.clientY - start.y;
+    const atTop = start.y <= 96;
+    if (atTop && deltaY > 45) {
+      if (start.x < event.currentTarget.clientWidth / 2) {
+        toggleNotificationCenter(true);
+      } else {
+        toggleControlCenter(true);
+      }
+    }
+  };
 
   const wallpaper = getWallpaperById(wallpaperId);
 
@@ -44,7 +67,9 @@ export const DeviceFrame: React.FC<DeviceFrameProps> = ({ children }) => {
 
         <div
           className="relative flex-1 min-h-0 w-full sm:rounded-[50px] overflow-hidden flex flex-col bg-black text-white"
-          style={{ filter: `brightness(${brightness}%)` }}
+          style={{ filter: `brightness(${brightness}%)`, touchAction: 'none' }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             aria-hidden="true"
