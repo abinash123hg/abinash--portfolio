@@ -2104,7 +2104,17 @@ html:has(.portfolio-landing--day) {
     background-image: none !important;
   }
 }
-@media (max-width:390px) { .iphone-home-screen { padding-inline:.75rem; }.iphone-home-screen .ios-home-widget { min-height:5rem; }.iphone-home-screen .ios-app-icon__surface { transform:scale(.94); }.iphone-home-screen .ios-home-dock { min-height:4.7rem; } }
+@media (max-width:390px) { .iphone-home-screen { padding-inline:.7rem; }.iphone-home-screen .ios-home-widget { min-height:5rem; }.iphone-home-screen .ios-app-icon__surface { transform:scale(.94); }.iphone-home-screen .ios-home-dock { min-height:4.7rem; } }
+
+/* Reference-accurate iPhone portrait home screen: four compact columns, two-column widgets. */
+.iphone-home-screen .ios-home-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: .15rem; row-gap: .7rem; }
+.iphone-home-screen .ios-home-grid > div { min-width: 0; }
+.iphone-home-screen .ios-home-widget { min-height: 5.2rem; }
+@media (max-width: 390px) {
+  .iphone-home-screen .ios-home-grid { column-gap: 0; row-gap: .55rem; }
+  .iphone-home-screen .ios-home-widget { min-height: 4.85rem; border-radius: 18px; padding: .55rem; }
+}
+
 
 /* iPhone-only interaction and surface polish */
 .iphone-shell { -webkit-tap-highlight-color:transparent; color-scheme:light dark; }

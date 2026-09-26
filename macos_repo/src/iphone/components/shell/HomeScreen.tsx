@@ -117,7 +117,7 @@ export const HomeScreen: React.FC = () => {
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       className="ios-wallpaper-text iphone-home-screen relative flex-1 min-h-0 w-full flex flex-col justify-between px-3 select-none overflow-hidden"
-      style={{ paddingTop: '72px', paddingBottom: 'calc(76px + 58px)' }}
+      style={{ paddingTop: '58px', paddingBottom: 'calc(64px + 58px)' }}
     >
       <h1 className="sr-only">Abinash Swain — AI/ML Portfolio</h1>
       <AnimatePresence>
@@ -152,10 +152,18 @@ export const HomeScreen: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col justify-start">        {currentWidgets.length > 0 && (          <div className="grid grid-cols-2 gap-x-1 gap-y-2 mb-2.5 px-0.5">            {currentWidgets.map((w) => (              <WidgetTile key={w.instanceId} widget={w} />            ))}          </div>        )}
+      <div className="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col justify-start">
+        {currentWidgets.length > 0 && (
+          <div className="grid grid-cols-4 gap-x-2 gap-y-2 mb-2.5 px-0.5">
+            {currentWidgets.map((w) => (
+              <WidgetTile key={w.instanceId} widget={w} />
+            ))}
+          </div>
+        )}
+
 
         {/* Corrected app grid: 3 stacked rows of 2 apps per homescreen */}
-        <div className="grid grid-cols-2 gap-1.5 px-1">
+        <div className="ios-home-grid grid grid-cols-4 gap-x-1 gap-y-3 px-0.5">
           {currentApps.map((app) => (
             <motion.div
               key={app.id}
