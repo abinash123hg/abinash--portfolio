@@ -37,12 +37,19 @@ export const WidgetTile: React.FC<WidgetTileProps> = ({ widget }) => {
       default:
         return <ClockWidget size={widget.size} />;
     }
-  };  const sizeClasses =    widget.size === 'small'      ? 'col-span-2 aspect-square'      : widget.size === 'medium'      ? 'col-span-2 h-20'      : 'col-span-2 h-36';
+  };
+
+  const sizeClasses =
+    widget.size === 'small'
+      ? 'col-span-2 aspect-square'
+      : widget.size === 'medium'
+      ? 'col-span-2 h-20'
+      : 'col-span-2 h-36';
 
 
   return (
     <div
-      className={`ios-wallpaper-text relative ${sizeClasses} rounded-[26px] overflow-hidden transition-all duration-300 ${
+      className={`ios-home-widget ios-wallpaper-text relative min-w-0 ${sizeClasses} rounded-[26px] overflow-hidden transition-all duration-300 ${
         isDark ? 'ios-glass-dark' : 'liquid-glass-card-light shadow-md'
       } ${isHomeEditing ? 'animate-jiggle select-none' : 'ios-press-active'}`}
       style={{

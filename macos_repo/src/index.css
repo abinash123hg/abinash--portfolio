@@ -2158,7 +2158,37 @@ html.dark .iphone-shell { color-scheme:dark; }
 .iphone-shell .ios-status-bar button { text-shadow:0 1px 3px rgba(0,0,0,.72); }
 .iphone-shell .iphone-app-layer { top:0; bottom:0; z-index:10; overflow:hidden; }
 .iphone-shell .ios-dynamic-island { top:calc(.5rem + env(safe-area-inset-top,0px)); }
-.iphone-shell .ios-dynamic-island > div[class*="126px"] { width:7.9rem; height:2.3rem; border-radius:999px; }
+  .iphone-shell .ios-dynamic-island > div[class*="126px"] { width:7.9rem; height:2.3rem; border-radius:999px; }
+  .iphone-shell .ios-dynamic-island { left:50%; transform:translateX(-50%); width:7.9rem; max-width:30vw; }
+  .iphone-shell .ios-dynamic-island > div { max-width:100%; }
+  .iphone-home-screen .ios-home-grid { flex:none; }
+  .iphone-home-screen .ios-home-widget { min-height:4.35rem; padding:.5rem; }
+  .iphone-home-screen .ios-home-grid { row-gap:.42rem; }
+  .iphone-home-screen .ios-home-grid > div > div:first-child > div { width:3.55rem; height:3.55rem; border-radius:1.05rem; }
+  .iphone-home-screen .ios-home-grid > div > span { font-size:.68rem; line-height:.85rem; }
+  .iphone-home-screen > div:last-of-type { margin-top:.15rem; margin-bottom:.35rem; }
+  .iphone-shell .ios-control-center.cc-light { color:#1c1c1e; background:rgba(242,242,247,.88); }
+  .iphone-shell .cc-light .bg-white\/65 { background:rgba(255,255,255,.72) !important; }
+  .iphone-shell .cc-light [class*="bg-white\/10"] { background:rgba(0,0,0,.06) !important; }
+  .iphone-shell .cc-light [class*="text-white"] { color:#1c1c1e !important; }
+  .iphone-shell .cc-light [class*="text-zinc-300"], .iphone-shell .cc-light [class*="text-zinc-400"] { color:#636366 !important; }
+  @media (max-width:390px) {
+    .iphone-shell .ios-dynamic-island { width:7.35rem; height:2.05rem; }
+    .iphone-home-screen .ios-home-widget { min-height:3.95rem; }
+    .iphone-home-screen .ios-home-grid { row-gap:.3rem; }
+    .iphone-home-screen .ios-home-grid > div > div:first-child > div { width:3.35rem; height:3.35rem; }
+    .iphone-home-screen .ios-home-grid > div > span { font-size:.64rem; }
+    .iphone-home-screen .ios-home-widget > div { padding:.55rem !important; }
+    .iphone-home-screen .ios-home-widget .text-xs { font-size:.58rem !important; line-height:.72rem !important; }
+    .iphone-home-screen .ios-home-widget .text-sm { font-size:.68rem !important; line-height:.82rem !important; }
+    .iphone-home-screen .ios-home-widget .text-\[11px\] { font-size:.5rem !important; }
+    .iphone-home-screen .ios-home-widget .grid { gap:.2rem !important; }
+    .iphone-home-screen .ios-home-widget .grid > div { min-width:0; overflow:hidden; }
+    .iphone-home-screen .ios-home-widget .grid > div span { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .iphone-home-screen .ios-home-grid > .ios-home-widget:first-child > div > div:first-child { flex-wrap:wrap; row-gap:.18rem; }
+    .iphone-home-screen .ios-home-grid > .ios-home-widget:first-child > div > div:first-child > div { max-width:100%; }
+    .iphone-home-screen .ios-home-grid > .ios-home-widget:first-child > div > div:first-child > span { max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  }
 .iphone-shell .ios-home-indicator { position:absolute; right:0; bottom:0; left:0; min-height:calc(2.75rem + env(safe-area-inset-bottom,0px)); padding-bottom:env(safe-area-inset-bottom,0px); background:transparent; }
 .iphone-shell .ios-home-indicator > div { width:8rem; max-width:42%; background:rgba(255,255,255,.82); box-shadow:0 1px 4px rgba(0,0,0,.32); }
 .iphone-shell .ios-app-window { background-color:#f2f2f7; background-image:none; }
