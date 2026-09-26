@@ -107,8 +107,10 @@ html:has(.portfolio-landing--day) {
 .wallpaper-ios-blue-ripple { background: radial-gradient(circle at 30% 18%,rgba(166,239,255,.95),transparent 28%), radial-gradient(circle at 75% 55%,#1777c8 0%,#0c397d 48%,#06132f 100%); }
 .wallpaper-ios-purple-orbit { background: radial-gradient(circle at 70% 16%,rgba(240,171,252,.95),transparent 24%), radial-gradient(circle at 35% 65%,#7c3aed 0%,#32106b 48%,#120622 100%); }
 .wallpaper-ios-sunset-glow { background: radial-gradient(circle at 72% 22%,#ffd6a5 0%,transparent 25%), linear-gradient(150deg,#f97316 0%,#9d174d 55%,#321047 100%); }
-.ios-control-center--dark::before, .ios-control-center--light::before, .ios-notification-center--dark::before, .ios-notification-center--light::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.18),transparent 32%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.16),transparent 35%); }
-.ios-control-center--light::before, .ios-notification-center--light::before { background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.75),transparent 34%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.18),transparent 38%); }
+.ios-control-center--dark::before, .ios-control-center--light::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.18),transparent 32%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.16),transparent 35%); }
+.ios-control-center--light::before { background: radial-gradient(circle at 15% 5%,rgba(255,255,255,.75),transparent 34%),radial-gradient(circle at 90% 80%,rgba(120,160,255,.18),transparent 38%); }
+.ios-notification-center--dark::before, .ios-notification-center--light::before { display: none !important; content: none !important; }
+.ios-notification-center--dark, .ios-notification-center--light { opacity: 1 !important; background-image: none !important; }
 .ios-notification-center .no-scrollbar, .ios-control-center .no-scrollbar { overscroll-behavior: contain; scrollbar-width: none; }
 .ios-notification-center .no-scrollbar::-webkit-scrollbar, .ios-control-center .no-scrollbar::-webkit-scrollbar { display: none; }
 @media (max-width:639px) { .ios-control-center > .flex-1 { padding-inline:.75rem; } .ios-control-center > div:first-child { padding-top:calc(2.75rem + env(safe-area-inset-top)); } .ios-notification-center > div:first-child { padding-top:calc(2.25rem + env(safe-area-inset-top)); } }
