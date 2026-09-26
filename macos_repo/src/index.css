@@ -2268,7 +2268,7 @@ html.dark .iphone-shell .ios-app-window__header { background:rgba(28,28,30,.88);
 .iphone-shell .ios-control-center { background:linear-gradient(145deg,rgba(28,45,68,.9),rgba(11,20,34,.94)); backdrop-filter:blur(26px) saturate(145%); -webkit-backdrop-filter:blur(26px) saturate(145%); }
   .iphone-shell .ios-control-center--ios18 { padding:0 !important; }
   .iphone-shell .ios-control-center--ios18::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,rgba(255,255,255,.08),transparent 28%,rgba(0,0,0,.12)); }
-  .iphone-shell .ios-control-center--ios18 > div:first-child { position:relative; z-index:2; padding-top:calc(3.35rem + env(safe-area-inset-top,0px)); padding-inline:1.25rem; padding-bottom:.65rem; }
+  .iphone-shell .ios-control-center--ios18 > div:first-child { position:relative; z-index:2; padding-top:.25rem; padding-inline:1.25rem; padding-bottom:.65rem; }
   .iphone-shell .ios-control-center--ios18 > div:nth-child(2) { position:relative; z-index:2; width:100%; max-width:none; padding:0 1rem calc(3.25rem + env(safe-area-inset-bottom,0px)); gap:.75rem; }
   .iphone-shell .ios-control-center--ios18 > div:nth-child(2) > div { width:100%; max-width:23rem; }
   .iphone-shell .ios-control-center--ios18 .grid { gap:.65rem; }
