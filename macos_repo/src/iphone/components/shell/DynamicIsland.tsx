@@ -29,9 +29,9 @@ export const DynamicIsland: React.FC = () => {
             toggleDynamicIsland();
           }
         }}
-        className={`bg-black text-white cursor-pointer shadow-2xl transition-all duration-300 flex items-center justify-between overflow-hidden border border-zinc-800/80 ${
+        className={`bg-black text-white cursor-pointer shadow-2xl transition-[width,height,transform,opacity] duration-200 ease-out flex items-center justify-between overflow-hidden border border-zinc-800/80 will-change-[width,height,transform] ${
           isDynamicIslandExpanded
-            ? 'w-[148px] min-h-[52px] rounded-[20px] p-2'
+            ? 'w-[176px] min-h-[54px] rounded-[21px] p-2'
             : dynamicIslandMode !== 'idle'
             ? 'w-[140px] h-[28px] rounded-full px-2'
             : 'w-[112px] h-[26px] rounded-full px-1.5'

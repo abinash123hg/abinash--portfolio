@@ -51,7 +51,7 @@ export const MediaPage: React.FC<Props> = ({ onOpenVolumeSheet }) => {
   };
 
   return (
-    <div className="w-full flex-1 flex flex-col items-center justify-between py-2 px-4 max-w-[340px] mx-auto select-none">
+    <div className="w-full min-h-full flex flex-col items-center justify-center py-4 px-3 mx-auto select-none">
       {/* Large Album Art Frame */}
       <div className="w-full flex flex-col items-center my-auto space-y-5">
         <div

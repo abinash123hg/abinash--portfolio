@@ -21,6 +21,7 @@ import { ExpandedFocusSheet } from '../control-center/ExpandedFocusSheet';
 import { ExpandedTimerSheet } from '../control-center/ExpandedTimerSheet';
 import { ExpandedCalculatorSheet } from '../control-center/ExpandedCalculatorSheet';
 import { ControlsGallerySheet } from '../control-center/ControlsGallerySheet';
+import { StatusBar } from './StatusBar';
 
 export const ControlCenter: React.FC = () => {
   const {
@@ -66,9 +67,12 @@ export const ControlCenter: React.FC = () => {
           }
         }}
       >
+        {/* Keep the live iPhone status row visible above the Control Center surface. */}
+        <StatusBar />
+
         {/* Top Header Bar */}
         <div
-          className="w-full pt-12 px-5 pb-3 flex items-center justify-between shrink-0 z-30"
+          className="w-full pt-[4.25rem] px-5 pb-3 flex items-center justify-between shrink-0 z-30"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Edit Button */}

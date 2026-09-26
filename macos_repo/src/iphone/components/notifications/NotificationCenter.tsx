@@ -27,6 +27,8 @@ export const NotificationCenter: React.FC = () => {
     openApp(appId);
   };
 
+  const isDark = theme === 'dark';
+
   return (
     <AnimatePresence>
       <motion.div
@@ -34,7 +36,7 @@ export const NotificationCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-        className="ios-notification-center absolute inset-0 z-[60] flex flex-col bg-black/65 backdrop-blur-2xl text-white select-none overflow-hidden"
+        className={`ios-notification-center absolute inset-0 z-[60] flex flex-col select-none overflow-hidden ${isDark ? 'ios-notification-center--dark text-white' : 'ios-notification-center--light text-zinc-950'}`}
       >
         {/* Top Handle & Dismiss Bar */}
         <div className="pt-10 px-6 pb-3 flex flex-col items-center">
@@ -45,17 +47,17 @@ export const NotificationCenter: React.FC = () => {
 
           {/* Clock & Date Header */}
           <div className="text-center">
-            <span className="text-xs font-semibold text-zinc-400 tracking-wide uppercase">
+            <span className={`text-xs font-semibold tracking-wide uppercase ${isDark ? 'text-zinc-400' : 'text-zinc-600'}`}>
               {dateString}
             </span>
-            <h1 className="text-5xl font-light tracking-tight text-white my-1 font-sans">
+            <h1 className={`text-5xl font-light tracking-tight my-1 font-sans ${isDark ? 'text-white' : 'text-zinc-950'}`}>
               {timeString.split(' ')[0]}
             </h1>
           </div>
         </div>
 
         {/* Action Bar: Title & Clear All */}
-        <div className="px-6 py-2 flex items-center justify-between border-b border-white/10">
+        <div className={`px-6 py-2 flex items-center justify-between border-b ${isDark ? 'border-white/10' : 'border-black/10'}`}>
           <div className="flex items-center gap-2">
             <Bell className="w-4 h-4 text-sky-400" />
             <span className="text-xs font-bold uppercase tracking-wider text-zinc-300">
@@ -95,7 +97,7 @@ export const NotificationCenter: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 onClick={() => handleNotificationClick(notif.appId, notif.id)}
-                className="relative p-3.5 rounded-[22px] bg-zinc-900/80 hover:bg-zinc-800/90 border border-white/10 backdrop-blur-xl shadow-lg cursor-pointer transition-all active:scale-[0.98] group"
+                className={`relative p-3.5 rounded-[22px] backdrop-blur-xl shadow-lg cursor-pointer transition-all active:scale-[0.98] group border ${isDark ? 'bg-zinc-900/75 hover:bg-zinc-800/90 border-white/10' : 'bg-white/70 hover:bg-white/85 border-black/10'}`}
               >
                 {/* Header: Icon, App Name, Time, Dismiss button */}
                 <div className="flex items-center justify-between mb-1.5">
@@ -105,7 +107,7 @@ export const NotificationCenter: React.FC = () => {
                     >
                       <AppIconGlyph name={notif.iconName} className="w-3.5 h-3.5" />
                     </div>
-                    <span className="text-xs font-bold text-white/90">{notif.appName}</span>
+                    <span className={`text-xs font-bold ${isDark ? 'text-white/90' : 'text-zinc-900'}`}>{notif.appName}</span>
                     <span className="text-[10px] text-zinc-400 font-mono">• {notif.time}</span>
                   </div>
 
@@ -122,7 +124,7 @@ export const NotificationCenter: React.FC = () => {
 
                 {/* Content */}
                 <div className="pl-7">
-                  <h4 className="text-xs font-bold text-white leading-tight">{notif.title}</h4>
+                  <h4 className={`text-xs font-bold leading-tight ${isDark ? 'text-white' : 'text-zinc-950'}`}>{notif.title}</h4>
                   <p className="text-xs text-zinc-300 mt-0.5 leading-relaxed">{notif.body}</p>
                 </div>
               </motion.div>
