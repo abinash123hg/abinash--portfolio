@@ -28,9 +28,20 @@ export const HomeScreen: React.FC = () => {
 
   const dockApps = APPS_REGISTRY.filter((app) => app.dock);
 
-  const page0AppIds: AppId[] = ['about', 'skills', 'experience', 'certifications', 'education', 'contact'];
-  const page1AppIds: AppId[] = ['safari', 'mail', 'notes', 'calendar', 'utility', 'camera'];
-  const page2AppIds: AppId[] = ['photos', 'videos', 'music', 'settings', 'gallery', 'games'];
+  // Keep the portfolio catalog distributed across three swipeable iOS pages.
+  // Ten icons per page matches the compact 4-column portrait home-screen grid.
+  const page0AppIds: AppId[] = [
+    'recruiter', 'projects', 'resume', 'chatbot', 'about',
+    'skills', 'experience', 'certifications', 'education', 'contact'
+  ];
+  const page1AppIds: AppId[] = [
+    'safari', 'mail', 'notes', 'calendar', 'analytics',
+    'finder', 'camera', 'utility', 'systeminfo', 'settings'
+  ];
+  const page2AppIds: AppId[] = [
+    'photos', 'gallery', 'music', 'videos', 'games',
+    'favorites', 'trash'
+  ];
 
   const getAppsForPage = (page: number): AppDefinition[] => {
     let ids: AppId[] = [];
