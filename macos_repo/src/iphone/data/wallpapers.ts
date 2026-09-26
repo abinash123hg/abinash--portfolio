@@ -10,6 +10,37 @@ export interface Wallpaper {
 }
 
 export const WALLPAPERS: Wallpaper[] = [
+  // iPhone-inspired layered wallpapers: lightweight CSS gradients keep the preview fast and offline.
+  {
+    id: 'ios-blue-ripple',
+    name: 'Blue Ripple',
+    category: 'dynamic',
+    className: 'wallpaper-ios-blue-ripple',
+    dominantColor: '#1777c8',
+    textColor: 'light',
+    thumbnailStyle: 'radial-gradient(circle at 30% 20%, #8be7ff 0%, #1777c8 38%, #071a4b 100%)',
+    description: 'Blue iPhone-style ocean ripple with soft daylight highlights'
+  },
+  {
+    id: 'ios-purple-orbit',
+    name: 'Purple Orbit',
+    category: 'dynamic',
+    className: 'wallpaper-ios-purple-orbit',
+    dominantColor: '#7c3aed',
+    textColor: 'light',
+    thumbnailStyle: 'radial-gradient(circle at 70% 18%, #f0abfc 0%, #7c3aed 42%, #180b35 100%)',
+    description: 'Deep violet iPhone-inspired orbital gradient'
+  },
+  {
+    id: 'ios-sunset-glow',
+    name: 'Sunset Glow',
+    category: 'light',
+    className: 'wallpaper-ios-sunset-glow',
+    dominantColor: '#f97316',
+    textColor: 'dark',
+    thumbnailStyle: 'linear-gradient(150deg, #ffd6a5 0%, #f97316 45%, #9d174d 100%)',
+    description: 'Warm coral sunset gradient inspired by iPhone wallpapers'
+  },
   // --- Dynamic Animated Wallpapers ---
   {
     id: 'dynamic-aurora',

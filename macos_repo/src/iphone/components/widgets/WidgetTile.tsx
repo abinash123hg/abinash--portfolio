@@ -49,8 +49,8 @@ export const WidgetTile: React.FC<WidgetTileProps> = ({ widget }) => {
 
   return (
     <div
-      className={`ios-home-widget ios-wallpaper-text relative min-w-0 ${sizeClasses} rounded-[26px] overflow-hidden transition-all duration-300 ${
-        isDark ? 'ios-glass-dark' : 'liquid-glass-card-light shadow-md'
+      className={`ios-home-widget ios-wallpaper-text relative min-w-0 ${sizeClasses} rounded-[22px] overflow-hidden transition-transform duration-200 ${
+        isDark ? 'ios-widget-dark' : 'ios-widget-light'
       } ${isHomeEditing ? 'animate-jiggle select-none' : 'ios-press-active'}`}
       style={{
         boxShadow: isDark

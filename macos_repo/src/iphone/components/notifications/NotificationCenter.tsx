@@ -97,7 +97,7 @@ export const NotificationCenter: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 onClick={() => handleNotificationClick(notif.appId, notif.id)}
-                className={`relative p-3.5 rounded-[22px] backdrop-blur-xl shadow-lg cursor-pointer transition-all active:scale-[0.98] group border ${isDark ? 'bg-zinc-900/75 hover:bg-zinc-800/90 border-white/10' : 'bg-white/70 hover:bg-white/85 border-black/10'}`}
+                className={`ios-notification-card relative p-3.5 rounded-[18px] shadow-md cursor-pointer transition-all active:scale-[0.98] group border ${isDark ? 'bg-[#252a33] hover:bg-[#303641] border-white/10' : 'bg-[#f4f5f7] hover:bg-white border-black/10'}`}
               >
                 {/* Header: Icon, App Name, Time, Dismiss button */}
                 <div className="flex items-center justify-between mb-1.5">
