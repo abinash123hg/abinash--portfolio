@@ -61,7 +61,7 @@ export const PosterCard: React.FC<PosterCardProps> = ({ show, onSelect, classNam
         {/* Fallback / Poster Graphic Overlay */}
         <div
           className={`absolute inset-0 bg-gradient-to-t ${show.accentGradient} p-4 flex flex-col justify-between ${
-            !imageError ? 'opacity-0 group-hover:opacity-100 backdrop-blur-xs transition-opacity duration-300' : 'opacity-100'
+            !imageError ? 'opacity-0 pointer-events-none transition-opacity duration-300' : 'opacity-100'
           }`}
         >
           <div className="flex items-center justify-between gap-1">
