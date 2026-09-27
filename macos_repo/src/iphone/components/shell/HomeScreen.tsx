@@ -163,7 +163,7 @@ export const HomeScreen: React.FC = () => {
 
 
         {/* Corrected app grid: 3 stacked rows of 2 apps per homescreen */}
-        <div className="ios-home-grid grid grid-cols-4 gap-x-1 gap-y-1.5 px-0.5">
+        <div className="ios-home-grid grid grid-cols-4 gap-x-1 gap-y-1 px-0.5 pb-1 shrink-0">
           {currentApps.map((app) => (
             <motion.div
               key={app.id}
@@ -177,7 +177,7 @@ export const HomeScreen: React.FC = () => {
             >
               <div className="relative">
                 <div
-                  className={`w-[58px] h-[58px] rounded-[18px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all border border-white/20`}
+                  className={`w-[52px] h-[52px] rounded-[16px] bg-gradient-to-tr ${app.gradient} flex items-center justify-center text-white shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all border border-white/20`}
                 >
                   <AppIconGlyph name={app.iconName} className="w-[26px] h-[26px] text-white drop-shadow-sm" />
                 </div>
@@ -187,7 +187,7 @@ export const HomeScreen: React.FC = () => {
                   </span>
                 )}
               </div>
-              <span className="text-[11px] leading-4 font-semibold tracking-tight truncate max-w-[62px] text-center" style={nameStyle}>
+              <span className="text-[10px] leading-3.5 font-semibold tracking-tight truncate max-w-[60px] text-center" style={nameStyle}>
                 {app.name}
               </span>
             </motion.div>
@@ -203,13 +203,13 @@ export const HomeScreen: React.FC = () => {
               }}
               className={`flex flex-col items-center gap-1 cursor-pointer group ${isHomeEditing ? 'animate-jiggle' : ''}`}
             >
-              <div className={`w-[58px] h-[58px] rounded-[18px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
+              <div className={`w-[52px] h-[52px] rounded-[16px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
                 <div className="w-4 h-4 rounded-xs bg-sky-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-emerald-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-purple-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-amber-500/80" />
               </div>
-              <span className="text-[11px] leading-4 font-semibold tracking-tight truncate max-w-[62px] text-center" style={nameStyle}>
+              <span className="text-[10px] leading-3.5 font-semibold tracking-tight truncate max-w-[60px] text-center" style={nameStyle}>
                 Dev Tools
               </span>
             </motion.div>
@@ -225,13 +225,13 @@ export const HomeScreen: React.FC = () => {
               }}
               className={`flex flex-col items-center gap-1 cursor-pointer group ${isHomeEditing ? 'animate-jiggle' : ''}`}
             >
-              <div className={`w-[58px] h-[58px] rounded-[18px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
+              <div className={`w-[52px] h-[52px] rounded-[16px] backdrop-blur-xl p-1.5 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg group-hover:scale-105 transition-transform ${isDark ? 'bg-white/20 border border-white/25' : 'bg-white/80 border border-black/15'}`}>
                 <div className="w-4 h-4 rounded-xs bg-rose-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-indigo-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-teal-500/80" />
                 <div className="w-4 h-4 rounded-xs bg-pink-500/80" />
               </div>
-              <span className="text-[11px] leading-4 font-semibold tracking-tight truncate max-w-[62px] text-center" style={nameStyle}>
+              <span className="text-[10px] leading-3.5 font-semibold tracking-tight truncate max-w-[60px] text-center" style={nameStyle}>
                 Media
               </span>
             </motion.div>
