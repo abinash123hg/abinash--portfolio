@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, Check } from 'lucide-react';
 import { APPS_REGISTRY } from '../../data/appsRegistry';
 import { FOLDERS_REGISTRY } from '../../data/foldersRegistry';
 import { useOSStore } from '../../store/useOSStore';
@@ -11,7 +11,6 @@ import { AppDefinition, AppId } from '../../types';
 export const HomeScreen: React.FC = () => {
   const {
     openApp,
-    toggleSpotlight,
     theme,
     homePageIndex,
     setHomePageIndex,
@@ -229,49 +228,6 @@ export const HomeScreen: React.FC = () => {
             </motion.div>
           )}
         </div>
-      </div>
-
-      <div className="my-2 flex items-center justify-center gap-3">
-        {homePageIndex > 0 && (
-          <button
-            onClick={() => setHomePageIndex(homePageIndex - 1)}
-            className="text-white hover:text-white transition-colors"
-            title="Previous Page"
-          >
-            <ChevronLeft className="w-3.5 h-3.5" />
-          </button>
-        )}
-        <div className="flex items-center gap-1.5 bg-black/25 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
-          {[0, 1, 2].map((idx) => (
-            <button
-              key={idx}
-              onClick={() => setHomePageIndex(idx)}
-              className={`h-1.5 rounded-full transition-all duration-200 ${
-                homePageIndex === idx ? 'w-4 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'
-              }`}
-              title={`Go to page ${idx + 1}`}
-            />
-          ))}
-        </div>
-        {homePageIndex < 2 && (
-          <button
-            onClick={() => setHomePageIndex(homePageIndex + 1)}
-            className="text-white hover:text-white transition-colors"
-            title="Next Page"
-          >
-            <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-        )}
-      </div>
-
-      <div className="mb-2 flex justify-center">
-        <button
-          onClick={toggleSpotlight}
-          className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs bg-black/35 hover:bg-black/50 backdrop-blur-xl border border-white/15 text-white shadow-md transition-all active:scale-95"
-        >
-          <Search className="w-3 h-3 text-white" />
-          <span className="font-semibold text-[11px]">Search</span>
-        </button>
       </div>
 
       <div className="absolute bottom-2 left-0 right-0 z-30 px-3">
