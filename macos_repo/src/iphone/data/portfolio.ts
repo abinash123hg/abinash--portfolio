@@ -512,7 +512,7 @@ export const PORTFOLIO_DATA = {
       rating: '9.5/10',
       color: 'from-emerald-800 to-zinc-950',
       quote: 'I am the one who knocks.',
-      posterSrc: '/assets/favorites/breakingbad.jpg',
+      posterSrc: 'breakingbad.jpg',
       synopsis: 'A chemistry teacher diagnosed with terminal cancer turns to manufacturing methamphetamine with a former student to secure his family’s financial future.'
     },
     {
