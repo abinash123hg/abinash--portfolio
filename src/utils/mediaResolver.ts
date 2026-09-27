@@ -35,6 +35,8 @@ export const resolveMediaUrl = (filename: string, subfolder?: string): string =>
     return filename;
   }
   if (filename.startsWith('/src/assets/') || filename.startsWith('/assets/')) {
+    const baseName = decodeURIComponent(filename.split('?')[0].split('/').pop() || '');
+    if (LOCAL_MEDIA_ALIASES[baseName]) return LOCAL_MEDIA_ALIASES[baseName];
     return filename;
   }
 

@@ -537,7 +537,7 @@ export const PORTFOLIO_DATA = {
       rating: '8.7/10',
       color: 'from-rose-800 to-zinc-950',
       quote: 'Never meet your heroes.',
-      posterSrc: '/assets/favorites/The Boys.jpg',
+      posterSrc: 'The-Boys.jpg',
       synopsis: 'A group of vigilantes sets out to take down corrupt superheroes who abuse their superpowers instead of using them for good.'
     },
     {
@@ -546,7 +546,7 @@ export const PORTFOLIO_DATA = {
       rating: '8.2/10',
       color: 'from-red-800 to-zinc-950',
       quote: 'Bella Ciao.',
-      posterSrc: '/assets/favorites/Money Heist.jpg',
+      posterSrc: 'Money-Heist.jpg',
       synopsis: 'An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history - stealing 2.4 billion euros from the Royal Mint of Spain.'
     },
     {
@@ -555,7 +555,7 @@ export const PORTFOLIO_DATA = {
       rating: '8.7/10',
       color: 'from-amber-900 to-zinc-950',
       quote: 'The question isn’t where, but when.',
-      posterSrc: '/assets/favorites/Dark.jpg',
+      posterSrc: 'Dark.jpg',
       synopsis: 'A family saga with a supernatural twist, set in a German town where the disappearance of two young children exposes the relationships among four families.'
     },
     {
@@ -564,7 +564,7 @@ export const PORTFOLIO_DATA = {
       rating: '8.5/10',
       color: 'from-sky-900 to-zinc-950',
       quote: 'Power is always dangerous.',
-      posterSrc: '/assets/favorites/vikings.jpg',
+      posterSrc: 'vikings.jpg',
       synopsis: 'Ragnar Lothbrok, a legendary Norse hero, rises from a simple farmer to the commander of Viking tribes and King of Denmark.'
     }
   ],
