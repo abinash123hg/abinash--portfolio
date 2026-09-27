@@ -154,7 +154,7 @@ export const HomeScreen: React.FC = () => {
 
       <div className="flex-1 min-h-0 w-full overflow-hidden no-scrollbar flex flex-col justify-start">
         {currentWidgets.length > 0 && (
-          <div className="grid grid-cols-4 gap-x-2 gap-y-2 mb-2.5 px-0.5">
+          <div className="grid grid-cols-4 gap-x-2 gap-y-1 mb-1.5 px-0.5 shrink-0">
             {currentWidgets.map((w) => (
               <WidgetTile key={w.instanceId} widget={w} />
             ))}
