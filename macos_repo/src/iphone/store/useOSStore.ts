@@ -203,7 +203,15 @@ const DEFAULT_STATE: OSState = {
         const saved = localStorage.getItem('ios_placed_widgets');
         if (saved) {
           const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return parsed.map((widget) =>
+              widget.type === 'weather'
+                ? { ...widget, size: 'medium' }
+                : widget.type === 'recruiter_glance'
+                  ? { ...widget, size: 'small' }
+                  : widget
+            );
+          }
         }
       } catch {}
     }

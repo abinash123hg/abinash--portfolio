@@ -97,14 +97,14 @@ export const DEFAULT_PLACED_WIDGETS: PlacedWidget[] = [
     instanceId: 'widget-recruiter-1',
     widgetId: 'widget-recruiter-glance',
     type: 'recruiter_glance',
-    size: 'medium',
+    size: 'small',
     page: 0
   },
   {
     instanceId: 'widget-weather-1',
     widgetId: 'widget-weather',
     type: 'weather',
-    size: 'small',
+    size: 'medium',
     page: 0
   },
   {
