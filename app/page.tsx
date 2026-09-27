@@ -1,7 +1,7 @@
 export default function Page() {
   return (
-    <main className="fixed inset-0 flex items-center justify-center bg-black text-sm text-zinc-400">
-      The portfolio preview is loading…
+    <main className="fixed inset-0 overflow-hidden bg-black">
+      <iframe title="Abinash portfolio" src="http://localhost:5173" className="h-full w-full border-0" />
     </main>
   )
 }
