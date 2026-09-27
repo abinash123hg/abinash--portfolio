@@ -4,9 +4,9 @@
   "private": true,
   "packageManager": "pnpm@12.3.4",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "cd abinash--portfolio/macos_repo && pnpm run dev",
+    "build": "cd abinash--portfolio/macos_repo && pnpm run build",
+    "start": "cd abinash--portfolio/macos_repo && pnpm run start"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
