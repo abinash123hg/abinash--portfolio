@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Search, Plus, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, Check } from 'lucide-react';
 import { APPS_REGISTRY } from '../../data/appsRegistry';
 import { FOLDERS_REGISTRY } from '../../data/foldersRegistry';
 import { useOSStore } from '../../store/useOSStore';
@@ -11,8 +11,7 @@ import { AppDefinition, AppId } from '../../types';
 export const HomeScreen: React.FC = () => {
   const {
     openApp,
-    toggleSpotlight,
-    theme,
+      theme,
     homePageIndex,
     setHomePageIndex,
     isHomeEditing,
@@ -237,48 +236,6 @@ export const HomeScreen: React.FC = () => {
             </motion.div>
           )}
         </div>
-      </div>
-
-      <div className="mt-2 mb-2.5 flex items-center justify-center gap-3">
-        {homePageIndex > 0 && (
-          <button
-            onClick={() => setHomePageIndex(homePageIndex - 1)}
-            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all active:scale-90 ${isDark ? 'bg-white/10 text-white/85 hover:bg-white/20' : 'bg-black/10 text-zinc-800 hover:bg-black/20'}`}
-            title="Previous Page"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-        )}
-        <div className={`flex items-center gap-1.5 backdrop-blur-md px-2.5 py-2 rounded-full border ${isDark ? 'bg-black/25 border-white/10' : 'bg-white/45 border-black/10'}`}>
-          {[0, 1, 2].map((idx) => (
-            <button
-              key={idx}
-              onClick={() => setHomePageIndex(idx)}
-              className={`min-h-[10px] min-w-[10px] h-3 rounded-full transition-all duration-200 ${homePageIndex === idx ? (isDark ? 'w-5 bg-white' : 'w-5 bg-zinc-900') : isDark ? 'w-2.5 bg-white/55 hover:bg-white/85' : 'w-2.5 bg-zinc-900/55 hover:bg-zinc-900/80'}`}
-              title={`Go to page ${idx + 1}`}
-            />
-          ))}
-        </div>
-        {homePageIndex < 2 && (
-          <button
-            onClick={() => setHomePageIndex(homePageIndex + 1)}
-            className={`flex items-center justify-center w-9 h-9 rounded-full transition-all active:scale-90 ${isDark ? 'bg-white/10 text-white/85 hover:bg-white/20' : 'bg-black/10 text-zinc-800 hover:bg-black/20'}`}
-            title="Next Page"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        )}
-      </div>
-
-      {/* Search pill — sits above the dock (dock is absolutely positioned at the bottom) */}
-      <div className="mb-3.5 flex justify-center">
-        <button
-          onClick={toggleSpotlight}
-          className={`flex items-center gap-2 px-4 py-3 min-h-[44px] rounded-full text-base backdrop-blur-xl border shadow-md transition-all active:scale-95 ${isDark ? 'bg-black/35 hover:bg-black/50 border-white/15 text-zinc-200' : 'bg-white/90 hover:bg-white border-black/15 text-zinc-900'}`}
-        >
-          <Search className={`w-5 h-5 shrink-0 ${isDark ? 'text-zinc-300' : 'text-zinc-500'}`} aria-hidden="true" />
-          <span className="font-semibold tracking-tight text-base">Search</span>
-        </button>
       </div>
 
       <div className="absolute bottom-2 left-0 right-0 z-30 px-3">
