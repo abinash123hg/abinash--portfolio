@@ -41,10 +41,10 @@ export const WidgetTile: React.FC<WidgetTileProps> = ({ widget }) => {
 
   const sizeClasses =
     widget.size === 'small'
-      ? 'col-span-2 aspect-square'
+      ? 'col-span-2 aspect-square min-h-0'
       : widget.size === 'medium'
-      ? 'col-span-4 h-[152px]'
-      : 'col-span-4 h-[314px]';
+      ? 'col-span-4 aspect-[2/1] min-h-0'
+      : 'col-span-4 aspect-[1/1] min-h-0';
 
   return (
     <div

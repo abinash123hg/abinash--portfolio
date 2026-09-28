@@ -97,7 +97,7 @@ export const DEFAULT_PLACED_WIDGETS: PlacedWidget[] = [
     instanceId: 'widget-recruiter-1',
     widgetId: 'widget-recruiter-glance',
     type: 'recruiter_glance',
-    size: 'medium',
+    size: 'small',
     page: 0
   },
   {
