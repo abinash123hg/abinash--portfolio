@@ -51,7 +51,7 @@ export const ControlCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 30, stiffness: 320 }}
-        className="absolute inset-0 z-[90] bg-black/55 backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden"
+        className="absolute inset-0 z-[90] h-full min-h-full w-full bg-black/80 backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden"
         onClick={() => {
           if (activeSheet) {
             setActiveSheet(null);
@@ -145,7 +145,7 @@ export const ControlCenter: React.FC = () => {
 
         {/* Scrollable Page Container */}
         <div
-          className="flex-1 w-full overflow-y-auto no-scrollbar pt-2 px-4 flex flex-col items-center z-10"
+          className="flex-1 min-h-0 h-full w-full overflow-y-auto no-scrollbar pt-2 px-4 flex flex-col items-center z-10"
           onClick={(e) => e.stopPropagation()}
         >
           {controlCenterPage === 0 && (
