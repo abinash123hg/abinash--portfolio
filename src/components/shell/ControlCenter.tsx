@@ -51,7 +51,7 @@ export const ControlCenter: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: '-100%', opacity: 0 }}
         transition={{ type: 'spring', damping: 30, stiffness: 320 }}
-        className="absolute inset-0 z-50 bg-black/55 backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden"
+        className="absolute inset-0 z-[90] bg-black/55 backdrop-blur-3xl flex flex-col justify-start select-none overflow-hidden"
         onClick={() => {
           if (activeSheet) {
             setActiveSheet(null);

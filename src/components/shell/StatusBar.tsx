@@ -14,7 +14,8 @@ export const StatusBar: React.FC = () => {
     batteryLevel,
     isCharging,
     isOnline,
-    networkType
+    networkType,
+    isControlCenterOpen
   } = useOSStore();
   const [time, setTime] = useState<string>('9:41');
 
@@ -35,7 +36,7 @@ export const StatusBar: React.FC = () => {
   const level = batteryLevel ?? 83;
 
   return (
-    <div className={`iphone-status-bar relative z-40 w-full pt-2 px-6 flex items-center justify-between select-none ${textColor} bg-transparent`}>
+    <div className={`iphone-status-bar relative ${isControlCenterOpen ? 'z-[100]' : 'z-40'} w-full pt-2 px-6 flex items-center justify-between select-none ${textColor} bg-transparent pointer-events-auto`}>
       <div
         onClick={() => toggleNotificationCenter()}
         className="w-20 flex items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
