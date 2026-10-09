@@ -42,6 +42,14 @@ export const AboutApp: React.FC = () => {
                 src="/assets/images/abinash-profile-192.webp"
                 alt="Abinash Swain"
                 className="w-full h-full object-cover"
+                loading="eager"
+                onError={(event) => {
+                  const image = event.currentTarget;
+                  if (!image.dataset.fallbackApplied) {
+                    image.dataset.fallbackApplied = "true";
+                    image.src = "https://avatars.githubusercontent.com/u/188182157?v=4";
+                  }
+                }}
               />
             </div>
           </div>
