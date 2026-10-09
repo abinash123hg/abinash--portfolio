@@ -288,6 +288,14 @@ export const LandingScreen: React.FC<LandingScreenProps> = ({ onExplore, onResum
                     fetchPriority="high"
                     decoding="async"
                     referrerPolicy="no-referrer"
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      if (!image.dataset.fallbackApplied) {
+                        image.dataset.fallbackApplied = "true";
+                        image.removeAttribute("srcSet");
+                        image.src = "https://avatars.githubusercontent.com/u/188182157?v=4";
+                      }
+                    }}
                   />
                 </div>
               </div>
