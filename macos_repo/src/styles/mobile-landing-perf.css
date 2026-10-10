@@ -1,0 +1,74 @@
+/* Mobile / iPhone landing scroll performance overrides */
+@media (max-width: 767px) {
+  .portfolio-landing {
+    max-height: none !important;
+    scroll-behavior: auto !important;
+    -webkit-overflow-scrolling: touch;
+    contain: layout style paint;
+  }
+
+  .portfolio-header {
+    background: rgba(2, 10, 22, 0.94) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .portfolio-landing--day .portfolio-header {
+    background: rgba(238, 247, 246, 0.96) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .portfolio-mode-toggle,
+  .portfolio-mobile-menu,
+  .portfolio-capability-grid {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .portfolio-photo-frame::before {
+    animation: none !important;
+    filter: none !important;
+    opacity: 0.12 !important;
+  }
+
+  .portfolio-landing .tilt-card {
+    transform: none !important;
+    transform-style: flat !important;
+    will-change: auto !important;
+  }
+
+  .portfolio-landing .tilt-card:hover {
+    transform: none !important;
+  }
+
+  .portfolio-landing .portfolio-profile-facts div,
+  .portfolio-landing .portfolio-focus-card,
+  .portfolio-landing .portfolio-expertise-card,
+  .portfolio-landing .portfolio-system-card,
+  .portfolio-landing .portfolio-workflow-step,
+  .portfolio-landing .portfolio-project-card,
+  .portfolio-landing .portfolio-experience-card,
+  .portfolio-landing .portfolio-certification-card,
+  .portfolio-landing .portfolio-contact-box {
+    box-shadow: 0 8px 20px rgba(2, 8, 25, 0.1) !important;
+    transition: border-color 180ms ease, background 180ms ease !important;
+  }
+
+  .portfolio-landing .portfolio-profile-facts div:hover,
+  .portfolio-landing .portfolio-focus-card:hover,
+  .portfolio-landing .portfolio-expertise-card:hover,
+  .portfolio-landing .portfolio-system-card:hover,
+  .portfolio-landing .portfolio-workflow-step:hover,
+  .portfolio-landing .portfolio-project-card:hover,
+  .portfolio-landing .portfolio-experience-card:hover,
+  .portfolio-landing .portfolio-certification-card:hover,
+  .portfolio-landing .portfolio-contact-box:hover {
+    transform: none !important;
+  }
+
+  .portfolio-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 480px;
+  }
+}
